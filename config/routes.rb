@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :resources, only: [:index, :show]
   resources :questions, only: [:show]
+  resources :user_activities, only: [:edit, :update]
 end
