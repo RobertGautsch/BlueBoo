@@ -119,12 +119,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_130602) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-
   add_foreign_key "answers", "assessments"
   add_foreign_key "answers", "questions"
   add_foreign_key "assessments", "users"
   add_foreign_key "suggestions", "answers"
   add_foreign_key "user_activities", "activities"
   add_foreign_key "user_activities", "users"
-
 end
