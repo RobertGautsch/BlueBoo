@@ -9,33 +9,33 @@
 require 'faker'
 
 puts "Seeding starts"
-User.delete_all
+User.destroy_all
 puts "all users deleted"
-Activity.delete_all
+Activity.destroy_all
 puts "all activities deleted"
-UserActivity.delete_all if UserActivity.all
+UserActivity.destroy_all if UserActivity.all
 puts "all user_activities deleted"
-Assessment.delete_all if UserActivity.all
+Assessment.destroy_all if UserActivity.all
 puts "all assessments deleted"
-Question.delete_all
+Question.destroy_all
 puts "all questions deleted"
-Answer.delete_all
+Answer.destroy_all
 puts "all answers deleted"
-Suggestion.delete_all
+Suggestion.destroy_all
 puts "all suggestions deleted"
-Resource.delete_all
+Resource.destroy_all
 puts "all resources deleted"
 
-@user = User.new(
+user1 = User.new(
   email: "test@test.com",
   password: "123456"
   # we need to add username here once migration finished
 )
-@user.save!
+user1.save!
 
 puts "one user created"
 
-@activities = {
+activities = {
   "journaling" => "calming",
   "drinking a tea" => "calming",
   "meditating" => "calming",
@@ -48,16 +48,16 @@ puts "one user created"
   "drawing" => "fun"
 }
 
-@activities.each_key do |key|
-  Activity.create(
-    category: @activities[key],
+activities.each_key do |key|
+  Activity.create!(
+    category: activities[key],
     description: key
   )
 end
 
 puts "10 activities created"
 
-@questions = [
+questions = [
   "Have you eaten in the last four hours?",
   "Have you taken your medication?",
   "Have you slept more than 8 hours?",
@@ -80,44 +80,46 @@ puts "10 activities created"
   "Do you have open tasks that will take you less than 5 minutes like paying bills or answering emails?"
 ]
 
-@questions.each do |question|
-  Question.create(
+questions.each do |question|
+  Question.create!(
     content: question
   )
 end
 
 puts "20 questions created"
 
-@assessment = Assessment.new
-@assessment.users_id = @user.id
-@assessment.save!
+assessment = Assessment.new
+assessment.user = user1
+assessment.save!
 
 puts "one assessment created"
 
 Question.all.each do |question|
-  rand(2..4).times do
-    answer = Answer.create(
+  3.times do
+    answer = Answer.new(
       content: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 4)
+      # we need to add answer_type
     )
     answer.question = question
-    answer.assessment = @assessment
+    answer.assessment = assessment
+    answer.save!
   end
 end
 
-puts "created between 2 and 4 answers for each question, each answer containing between 2 and 6 words"
+puts "created 3 answers for each question, each answer containing between 2 and 6 words"
 
 Answer.all.each do |answer|
-  suggestion = Suggestion.create(
+  suggestion = Suggestion.new(
     title: Faker::TvShows::RuPaul.quote,
     content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
   )
   suggestion.answer = answer
-  suggestion.save
+  suggestion.save!
 end
 
 puts "one suggestion for each answer created"
 
-@titles = [
+titles = [
   "How to find a therapist",
   "Choosing the right therapist for you",
   "Types of therapy and their advantages",
@@ -130,13 +132,13 @@ puts "one suggestion for each answer created"
   "Normalizing mental health"
 ]
 
-@topics = %w[therapy mental\ health therapist]
+topics = %w[therapy mental\ health therapist]
 
-@titles.each do |title|
-  Resource.create(
+titles.each do |title|
+  Resource.create!(
     title: title,
     text: Faker::Lorem.paragraph(sentence_count: 10, supplemental: false, random_sentences_to_add: 10),
-    topic: @topics.sample,
+    topic: topics.sample,
     reading_duration: (rand(1..4) * 5)
   )
 end
