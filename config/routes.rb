@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get "quiz", to: "quiz#start"
   resources :resources, only: [:index, :show]
   resources :questions, only: [:show]
+  resources :suggestions, only: [:index]
   resources :user_activities, only: [:edit, :update]
 end

@@ -1,5 +1,6 @@
 class SuggestionsController < ApplicationController
   def index
-    @suggestions = Suggestions.all
+
+    @suggestions = Suggestion.all
   end
 end
