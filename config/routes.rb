@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get "quiz", to: "quiz#start"
   resources :resources, only: [:index, :show]
   resources :questions, only: [:show]
+  resources :suggestions, only: [:index]
   resources :user_activities, only: [:edit, :update]
 end
