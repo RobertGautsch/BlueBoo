@@ -58,28 +58,28 @@ end
 puts "10 activities created"
 
 question_data = [
-  { content: "Have you eaten in the last four hours?", category: 'food' },
-  { content: "Have you taken your medication?", category: 'medication' },
-  { content: "Have you slept more than 8 hours?", category: 'sleep' },
-  { content: "Have you had two liters of water or more today?", category: 'water' },
-  { content: "Are you in physical pain?", category: 'pain' },
-  { content: "Do you feel sweaty or dirty?", category: 'hygiene' },
-  { content: "Is your environment dirty or untidy?", category: 'tidyness' },
-  { content: "Have you been outside today?", category: 'outside' },
-  { content: "Are you comfortable alone/with the people around you?", category: 'people' },
-  { content: "Do you have something on your mind?", category: 'worries' },
-  { content: "Are you feeling anxious?", category: 'anxiety' },
-  { content: "Are you feeling depressed?", category: 'depressed' },
-  { content: "Are you feeling dizzy?", category: 'dizzy' },
-  { content: "Are you low on energy?", category: 'energy' },
-  { content: "Do you feel calm?", category: 'calm' },
-  { content: "Do you feel calm?", category: 'empty' }
+ ["Have you eaten in the last four hours?", 'food'],
+ ["Have you taken your medication?", 'medication'],
+ ["Have you slept more than 8 hours?", 'sleep'],
+ ["Have you had two liters of water or more today?", 'water'],
+ ["Are you in physical pain?", 'pain'],
+ ["Do you feel sweaty or dirty?", 'hygiene'],
+ ["Is your environment dirty or untidy?", 'tidyness'],
+ ["Have you been outside today?", 'outside'],
+ ["Are you comfortable alone/with the people around you?", 'people'],
+ ["Do you have something on your mind?", 'worries'],
+ ["Are you feeling anxious?", 'anxiety'],
+ ["Are you feeling depressed?", 'depressed'],
+ ["Are you feeling dizzy?", 'dizzy'],
+ ["Are you low on energy?", 'energy'],
+ ["Do you feel calm?", 'calm'],
+ ["Do you feel calm?", 'empty']
 ]
 
 question_data.each do |question|
   Question.create!(
-    content: :content,
-    category: :category
+    content: question[0],
+    category: question[1]
   )
 end
 
