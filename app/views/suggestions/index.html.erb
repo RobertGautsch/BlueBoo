@@ -1,9 +1,31 @@
 <h1>I work</h1>
 
-
-   <% @suggestions.each do |suggestion| %>
-    <div>
-      <h2><%= suggestion.title %></h2>
-      <h4><%= suggestion.content %></h4>
-    </div>
+<h2>Bad section:</h2>
+<div>
+  <% @suggestions.each do |suggestion| %>
+      <% if suggestion.answer.answer_type == "good" %>
+          <h2><%= suggestion.title %></h2>
+          <h4><%= suggestion.content %></h4>
+        <% end %>
   <% end %>
+</div>
+
+<h2>Neutral section:</h2>
+<div>
+  <% @suggestions.each do |suggestion| %>
+      <% if suggestion.answer.answer_type == "neutral" %>
+          <h2><%= suggestion.title %></h2>
+          <h4><%= suggestion.content %></h4>
+        <% end %>
+  <% end %>
+</div>
+
+<h2>Bad section:</h2>
+<div>
+  <% @suggestions.each do |suggestion| %>
+      <% if suggestion.answer.answer_type == "bad" %>
+          <h2><%= suggestion.title %></h2>
+          <h4><%= suggestion.content %></h4>
+        <% end %>
+  <% end %>
+</div>
