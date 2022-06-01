@@ -28,8 +28,8 @@ puts "all resources deleted"
 
 user1 = User.new(
   email: "test@test.com",
-  password: "123456"
-  # we need to add username here once migration finished
+  password: "123456",
+  username: "myUsername"
 )
 user1.save!
 
@@ -57,36 +57,33 @@ end
 
 puts "10 activities created"
 
-questions = [
-  "Have you eaten in the last four hours?",
-  "Have you taken your medication?",
-  "Have you slept more than 8 hours?",
-  "Have you had two liters of water or more today?",
-  "Are you in physical pain?",
-  "Are you too warm or too cold?",
-  "Do you feel sweaty or dirty?",
-  "Is your environment dirty or untidy?",
-  "Have you been outside today?",
-  "Are you comfortable alone/with the people around you?",
-  "Do you have something on your mind?",
-  "Are you feeling anxious, paranoid?",
-  "Are you feeling triggered?",
-  "Are you feeling dissociative?",
-  "Are you feeling sad/depressed?",
-  "Are you feeling dizzy?",
-  "Are you low on energy?",
-  "Do you feel calm?",
-  "Do you feel empty?",
-  "Do you have open tasks that will take you less than 5 minutes like paying bills or answering emails?"
+question_data = [
+  { content: "Have you eaten in the last four hours?", category: 'food' },
+  { content: "Have you taken your medication?", category: 'medication' },
+  { content: "Have you slept more than 8 hours?", category: 'sleep' },
+  { content: "Have you had two liters of water or more today?", category: 'water' },
+  { content: "Are you in physical pain?", category: 'pain' },
+  { content: "Do you feel sweaty or dirty?", category: 'hygiene' },
+  { content: "Is your environment dirty or untidy?", category: 'tidyness' },
+  { content: "Have you been outside today?", category: 'outside' },
+  { content: "Are you comfortable alone/with the people around you?", category: 'people' },
+  { content: "Do you have something on your mind?", category: 'worries' },
+  { content: "Are you feeling anxious?", category: 'anxiety' },
+  { content: "Are you feeling depressed?", category: 'depressed' },
+  { content: "Are you feeling dizzy?", category: 'dizzy' },
+  { content: "Are you low on energy?", category: 'energy' },
+  { content: "Do you feel calm?", category: 'calm' },
+  { content: "Do you feel calm?", category: 'empty' }
 ]
 
-questions.each do |question|
+question_data.each do |question|
   Question.create!(
-    content: question
+    content: :content,
+    category: :category
   )
 end
 
-puts "20 questions created"
+puts "16 questions created"
 
 assessment = Assessment.new
 assessment.user = user1
@@ -97,8 +94,8 @@ puts "one assessment created"
 Question.all.each do |question|
   3.times do
     answer = Answer.new(
-      content: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 4)
-      # we need to add answer_type
+      content: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 4),
+      answer_type: ["good", "neutral", "bad"].sample # needs to be adapted
     )
     answer.question = question
     answer.assessment = assessment
