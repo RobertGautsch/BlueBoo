@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_145022) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_06_01_130602) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,26 +53,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_145022) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
-    t.bigint "questions_id", null: false
+    t.bigint "question_id", null: false
+    t.bigint "assessment_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["questions_id"], name: "index_answers_on_questions_id"
+    t.string "answer_type"
+    t.index ["assessment_id"], name: "index_answers_on_assessment_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "assessments", force: :cascade do |t|
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_assessments_on_users_id"
+    t.index ["user_id"], name: "index_assessments_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.text "content"
-    t.string "image"
-    t.bigint "assessments_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["assessments_id"], name: "index_questions_on_assessments_id"
+    t.string "category"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -85,19 +88,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_145022) do
   create_table "suggestions", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.bigint "answers_id", null: false
+    t.bigint "answer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answers_id"], name: "index_suggestions_on_answers_id"
+    t.index ["answer_id"], name: "index_suggestions_on_answer_id"
   end
 
   create_table "user_activities", force: :cascade do |t|
-    t.bigint "activities_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "activity_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["activities_id"], name: "index_user_activities_on_activities_id"
-    t.index ["users_id"], name: "index_user_activities_on_users_id"
+    t.index ["activity_id"], name: "index_user_activities_on_activity_id"
+    t.index ["user_id"], name: "index_user_activities_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,14 +114,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_145022) do
     t.string "username", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "answers", "questions", column: "questions_id"
-  add_foreign_key "assessments", "users", column: "users_id"
-  add_foreign_key "questions", "assessments", column: "assessments_id"
-  add_foreign_key "suggestions", "answers", column: "answers_id"
-  add_foreign_key "user_activities", "activities", column: "activities_id"
-  add_foreign_key "user_activities", "users", column: "users_id"
+  add_foreign_key "answers", "assessments"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "assessments", "users"
+  add_foreign_key "suggestions", "answers"
+  add_foreign_key "user_activities", "activities"
+  add_foreign_key "user_activities", "users"
 end
