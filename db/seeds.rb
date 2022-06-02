@@ -92,10 +92,10 @@ assessment.save!
 puts "one assessment created"
 
 Question.all.each do |question|
-  3.times do
+  ["good", "neutral", "bad"].each do |type|
     answer = Answer.new(
       content: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 4),
-      answer_type: ["good", "neutral", "bad"].sample # needs to be adapted
+      answer_type: type
     )
     answer.question = question
     answer.assessment = assessment
