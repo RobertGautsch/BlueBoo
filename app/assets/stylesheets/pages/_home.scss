@@ -2,23 +2,23 @@
 .page-container-home {
   background-image: url("background-home.jpg");
   background-size: cover;
-  width: 100%;
+  height: 100%;
 }
 
 .container-home {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0px 16px 240px;
+  height: 92vh;
 }
 
 .container-home h1 {
   align-items: center;
   text-align: center;
   color: #F5F0ED;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding-bottom: 16px;
+  padding-top: 100px
 }
 
 .container-buttons {
@@ -26,4 +26,5 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  line-height: 0;
 }
