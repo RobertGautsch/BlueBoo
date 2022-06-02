@@ -1,14 +1,13 @@
 class AnswersController < ApplicationController
   def show
     @answer = Answer.find(params[:id]) # ???
-    @user = current_user
-    @assessment = @user.assessments.last
-    @suggestions = @answer.suggestions
+    # @user = current_user
+    # @assessment = @user.assessments.last
     # answers = curent_user.assements.last.anwsers
-
+    # answers.each do |aw|
+    @all_suggestions = Suggestion.where(question: @answer.question).where(answer_type: @answer.answer_type)
+    @suggestions = @all_suggestions.select { |suggestion| suggestion.question.category == params[:category] }
   end
-
-  # somehow transform content to answer_type??
 
   def create
     @user = current_user
@@ -32,14 +31,4 @@ class AnswersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  # private
-
-  # def answer_params
-  #   params.require(:answer).permit(:question_id, :content, :answer_type, :asessment_id)
-  # end
-
-  # hand questions category in params
-  # params include questions_category
-  # also add link in result
 end
