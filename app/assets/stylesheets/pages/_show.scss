@@ -1,0 +1,20 @@
+.container-questions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.answers {
+  width: 90vw;
+  text-align: center;
+}
+
+.container-question-content {
+  text-align: center;
+}
+
+.container-answers {
+  align-items: center;
+}
