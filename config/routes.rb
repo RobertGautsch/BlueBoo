@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "quiz", to: "quiz#start"
+  get "result", to: "quiz#result"
   resources :resources, only: [:index, :show]
   resources :suggestions, only: [:index]
   resources :user_activities, only: [:edit, :update]
