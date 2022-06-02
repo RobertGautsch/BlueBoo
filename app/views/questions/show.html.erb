@@ -1,11 +1,13 @@
 <div>
   <div class='container-questions'>
-    <h2><%= @question.content %></h2>
-  </div>
-  <div class='container-answers'>
-    <% @question.answers.each do |answer|%>
-    <p class="btn btn-primary"><%= answer.content %></p>
-    <% end %>
+    <div class='container-question-content'>
+      <h2><%= @question.content %></h2>
+    </div>
+    <div class='container-answers'>
+      <% @question.answers.each do |answer|%>
+      <p class="btn btn-primary"><%= answer.content %></p>
+      <% end %>
+    </div>
   </div>
   <div>
     <div>
