@@ -7,12 +7,12 @@
 
 <ul>
   <% @neutrals.each do |answer| %>
-    <li><%= answer.question.category %></li>
+    <li><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></li>
   <% end %>
 </ul>
 
 <ul>
   <% @bads.each do |answer| %>
-    <li><%= answer.question.category %></li>
+    <li><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></li>
   <% end %>
 </ul>
