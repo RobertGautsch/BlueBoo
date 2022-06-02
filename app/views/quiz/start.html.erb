@@ -1,8 +1,19 @@
+
+<div class="container-quiz-start">
+  <div class="container-intro">
+    <h2>When we are struggling with mental health, small actions can make a huge difference on how we feel.</h2>
+    <p>With this assessment we want to help you with that.</p>
+  </div>
+  <div>
+    <button class="button-main"><%= link_to "Start", question_path(@question) %></button>
+  </div>
+</div>
+
 <!--Modal Animation for instant load -->
-<script type="text/javascript">
-    window.onload = () => {
-        $('#exampleModal').modal('show');
-    }
+<script>
+    $(document).ready(function(){
+        $("#exampleModal").modal('show');
+    });
 </script>
 
 <!-- Modal -->
@@ -20,15 +31,5 @@
         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">I will try</button>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="container-quiz-start">
-  <div class="container-intro">
-    <h2>When we are struggling with mental health, small actions can make a huge difference on how we feel.</h2>
-    <p>With this assessment we want to help you with that.</p>
-  </div>
-  <div>
-    <button class="button-main"><%= link_to "Start", question_path(@question) %></button>
   </div>
 </div>
