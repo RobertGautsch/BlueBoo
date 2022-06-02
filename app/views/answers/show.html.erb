@@ -1,3 +1,11 @@
+    <%# answers.each do |aw|
+    Suggestion.where(question: aw.question).where(answer_type: aw.answer_type).first %>
+
+
+
+
+<%# old code: %>
+
 <h2>Bad section:</h2>
 <div>
   <% @suggestions.each do |suggestion| %>
