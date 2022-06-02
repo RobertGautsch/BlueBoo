@@ -1,0 +1,24 @@
+<div>
+  <div class='container-questions'>
+    <div class='container-question-content'>
+      <h2><%= @question.content %></h2>
+    </div>
+    <div class='container-answers'>
+      <% @question.answers.each do |answer|%>
+      <p class="btn btn-primary"><%= answer.content %></p>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <% unless  @question.id == Question.first.id%>
+      <%= link_to "Back", @question.back %>
+      <% end %>
+    </div>
+    <div>
+      <% unless  @question.id == Question.last.id %>
+      <%= link_to "Next", @question.next %>
+      <% end %>
+    </div>
+  </div>
+</div>
