@@ -1,37 +1,11 @@
-    <%# answers.each do |aw|
-    Suggestion.where(question: aw.question).where(answer_type: aw.answer_type).first %>
-
-
-
-
-<%# old code: %>
-
 <h2>Bad section:</h2>
 <div>
   <% @suggestions.each do |suggestion| %>
-      <% if suggestion.answer.answer_type == "good" %>
           <h2><%= suggestion.title %></h2>
           <h4><%= suggestion.content %></h4>
-        <% end %>
   <% end %>
 </div>
 
-<h2>Neutral section:</h2>
-<div>
-  <% @suggestions.each do |suggestion| %>
-      <% if suggestion.answer.answer_type == "neutral" %>
-          <h2><%= suggestion.title %></h2>
-          <h4><%= suggestion.content %></h4>
-        <% end %>
-  <% end %>
-</div>
 
-<h2>Bad section:</h2>
-<div>
-  <% @suggestions.each do |suggestion| %>
-      <% if suggestion.answer.answer_type == "bad" %>
-          <h2><%= suggestion.title %></h2>
-          <h4><%= suggestion.content %></h4>
-        <% end %>
-  <% end %>
-</div>
+
+

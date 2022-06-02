@@ -1,7 +1,7 @@
 <h2>I work</h2>
 <ul>
   <% @goods.each do |answer| %>
-    <li><%= answer.question.category%></li>
+    <li><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></li>
   <% end %>
 </ul>
 
