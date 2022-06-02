@@ -8,7 +8,7 @@
 .container-home {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 0px 16px 240px;
 }
@@ -17,4 +17,11 @@
   align-items: center;
   text-align: center;
   color: #F5F0ED;
+}
+
+.container-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
