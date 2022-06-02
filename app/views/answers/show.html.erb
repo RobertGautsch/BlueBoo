@@ -1,11 +1,9 @@
 <h2>Bad section:</h2>
 <div>
   <% @suggestions.each do |suggestion| %>
-          <h2><%= suggestion.title %></h2>
-          <h4><%= suggestion.content %></h4>
+    <div class="suggestion-card">
+      <h2><%= suggestion.title %></h2>
+      <h4><%= suggestion.content %></h4>
+    </div>
   <% end %>
 </div>
-
-
-
-
