@@ -15,8 +15,15 @@
   </head>
 
   <body>
-  <%= render 'components/navbar' %>
-    <%= yield %>
+    <% if request.path == "/" %>
+    <% home = true %>
+    <% else %>
+    <% home = false %>
+    <% end %>
+    <div class="page-container <%= "page-container-home" if home == true %>">
+      <%= render 'components/navbar' %>
+      <%= yield %>
+    </div>
     <!-- import jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Bootstrap Bundle with Popper -->

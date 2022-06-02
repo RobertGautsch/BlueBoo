@@ -1,1 +1,20 @@
 // Specific CSS for your home-page
+.page-container-home {
+  background-image: url("background-home.jpg");
+  background-size: cover;
+  width: 100%;
+}
+
+.container-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 16px 240px;
+}
+
+.container-home h1 {
+  align-items: center;
+  text-align: center;
+  color: #F5F0ED;
+}
