@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_130602) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_130517) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_130602) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"
+    t.string "option1"
+    t.string "option2"
+    t.string "option3"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -86,10 +89,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_130602) do
   create_table "suggestions", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.bigint "answer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_suggestions_on_answer_id"
+    t.bigint "question_id"
+    t.string "answer_type"
+    t.index ["question_id"], name: "index_suggestions_on_question_id"
   end
 
   create_table "user_activities", force: :cascade do |t|
@@ -120,7 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_130602) do
   add_foreign_key "answers", "assessments"
   add_foreign_key "answers", "questions"
   add_foreign_key "assessments", "users"
-  add_foreign_key "suggestions", "answers"
+  add_foreign_key "suggestions", "questions"
   add_foreign_key "user_activities", "activities"
   add_foreign_key "user_activities", "users"
 end
