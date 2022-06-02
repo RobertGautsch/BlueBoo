@@ -79,7 +79,10 @@ question_data = [
 question_data.each do |question|
   Question.create!(
     content: question[0],
-    category: question[1]
+    category: question[1],
+    option1: "Option 1",
+    option2: "Option 2",
+    option3: "Option 3"
   )
 end
 
@@ -92,26 +95,49 @@ assessment.save!
 puts "one assessment created"
 
 Question.all.each do |question|
-  ["good", "neutral", "bad"].each do |type|
-    answer = Answer.new(
-      content: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 4),
-      answer_type: type
-    )
-    answer.question = question
-    answer.assessment = assessment
-    answer.save!
-  end
+  answer = Answer.new(
+    content: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 4),
+    answer_type: ["good", "neutral", "bad"].sample
+  )
+  answer.question = question
+  answer.assessment = assessment
+  answer.save!
 end
 
-puts "created 3 answers for each question, each answer containing between 2 and 6 words"
+puts "created an answer for each question, each answer containing between 2 and 6 words"
 
-Answer.all.each do |answer|
-  suggestion = Suggestion.new(
+Question.all.each do |question|
+  suggestion1 = Suggestion.new(
     title: Faker::TvShows::RuPaul.quote,
     content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
   )
-  suggestion.answer = answer
-  suggestion.save!
+  suggestion1.question = question
+  suggestion1.answer_type = "good"
+  suggestion1.save!
+
+  suggestion2 = Suggestion.new(
+    title: Faker::TvShows::RuPaul.quote,
+    content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+  )
+  suggestion2.question = question
+  suggestion2.answer_type = "bad"
+  suggestion2.save!
+
+  suggestion3 = Suggestion.new(
+    title: Faker::TvShows::RuPaul.quote,
+    content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+  )
+  suggestion3.question = question
+  suggestion3.answer_type = "neutral"
+  suggestion3.save!
+
+  suggestion4 = Suggestion.new(
+    title: Faker::TvShows::RuPaul.quote,
+    content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+  )
+  suggestion4.question = question
+  suggestion4.answer_type = "neutral"
+  suggestion4.save!
 end
 
 puts "one suggestion for each answer created"
