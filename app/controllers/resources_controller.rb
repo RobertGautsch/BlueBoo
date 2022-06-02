@@ -1,9 +1,9 @@
 class ResourcesController < ApplicationController
   def index
-    @resources = Resources.all
+    @resources = Resource.all
   end
 
   def show
-    @resource = Resources.find(params[:id])
+    @resource = Resource.find(params[:id])
   end
 end
