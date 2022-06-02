@@ -58,22 +58,22 @@ end
 puts "10 activities created"
 
 question_data = [
- ["Have you eaten in the last four hours?", 'food'],
- ["Have you taken your medication?", 'medication'],
- ["Have you slept more than 8 hours?", 'sleep'],
- ["Have you had two liters of water or more today?", 'water'],
- ["Are you in physical pain?", 'pain'],
- ["Do you feel sweaty or dirty?", 'hygiene'],
- ["Is your environment dirty or untidy?", 'tidyness'],
- ["Have you been outside today?", 'outside'],
- ["Are you comfortable alone/with the people around you?", 'people'],
- ["Do you have something on your mind?", 'worries'],
- ["Are you feeling anxious?", 'anxiety'],
- ["Are you feeling depressed?", 'depressed'],
- ["Are you feeling dizzy?", 'dizzy'],
- ["Are you low on energy?", 'energy'],
- ["Do you feel calm?", 'calm'],
- ["Do you feel calm?", 'empty']
+  ["Have you eaten in the last four hours?", 'food'],
+  ["Have you taken your medication?", 'medication'],
+  ["Have you slept more than 8 hours?", 'sleep'],
+  ["Have you had two liters of water or more today?", 'water'],
+  ["Are you in physical pain?", 'pain'],
+  ["Do you feel sweaty or dirty?", 'hygiene'],
+  ["Is your environment dirty or untidy?", 'tidyness'],
+  ["Have you been outside today?", 'outside'],
+  ["Are you comfortable alone/with the people around you?", 'people'],
+  ["Do you have something on your mind?", 'worries'],
+  ["Are you feeling anxious?", 'anxiety'],
+  ["Are you feeling depressed?", 'depressed'],
+  ["Are you feeling dizzy?", 'dizzy'],
+  ["Are you low on energy?", 'energy'],
+  ["Do you feel calm?", 'calm'],
+  ["Do you feel calm?", 'empty']
 ]
 
 question_data.each do |question|
