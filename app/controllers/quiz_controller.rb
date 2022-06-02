@@ -1,6 +1,7 @@
 class QuizController < ApplicationController
   def start
     @question = Question.first
+    Assessment.create(user: current_user)
   end
 
   def result
