@@ -4,21 +4,22 @@
       <h2><%= @question.content %></h2>
     </div>
     <div class='container-answers'>
-      <% @question.answers.each do |answer|%>
-      <p class="btn btn-primary answers"><%= answer.content %></p>
-      <% end %>
+      <%= link_to "#{@question.option1}", answers_path(question: @question.id, type: "good", content: @question.option1), data: { turbo_method: :post }, class: "btn btn-primary answers" %>
+      <%= link_to "#{@question.option2}", answers_path(question: @question.id, type: "neutral", content: @question.option2), data: { turbo_method: :post }, class: "btn btn-primary answers" %>
+      <%= link_to "#{@question.option3}", answers_path(question: @question.id, type: "bad", content: @question.option3), data: { turbo_method: :post }, class: "btn btn-primary answers" %>
     </div>
 
-      <div>
+    <div>
       <% unless  @question.id == Question.first.id%>
-      <%= link_to "Back", @question.back %>
+        <%= link_to "Back", @question.back %>
       <% end %>
+    <!--
       <% unless  @question.id == Question.last.id %>
-      <%= link_to "Next", @question.next %>
+        <%= link_to "Next", @question.next %>
+      <% else %>
+        <%= link_to "Results", result_path %>
       <% end %>
+    -->
     </div>
-
   </div>
-
-
 </div>
