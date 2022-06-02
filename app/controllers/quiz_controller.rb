@@ -1,4 +1,5 @@
-class QuizController < ApplicationController
+class
+  Controller < ApplicationController
   def start
     @question = Question.first
   end
