@@ -73,7 +73,7 @@ question_data = [
   ["Are you feeling dizzy?", 'dizzy'],
   ["Are you low on energy?", 'energy'],
   ["Do you feel calm?", 'calm'],
-  ["Do you feel calm?", 'empty']
+  ["Do you feel empty?", 'empty']
 ]
 
 question_data.each do |question|
