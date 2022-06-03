@@ -73,7 +73,7 @@ question_data = [
   ["Are you feeling dizzy?", 'dizzy'],
   ["Are you low on energy?", 'energy'],
   ["Do you feel calm?", 'calm'],
-  ["Do you feel calm?", 'empty']
+  ["Do you feel empty?", 'empty']
 ]
 
 answer_options = [
@@ -82,7 +82,7 @@ answer_options = [
   ["No, I am very tired", "No, I am a bit sleepy", "Yes, I am well rested"],
   ["Not even close", "Not quite", "Yes, I am well hydrated"],
   ["Yes, I am in pain", "Something hurts a little", "No, I am not feeling any pain"],
-  ["I don't feel clean and it bothers me", "I could use some refreshment", "No, I feel clean"],
+  ["Yes and it bothers me", "I could use some refreshment", "No, I feel clean"],
   ["It's a mess or it's dirty", "It's a little untidy", "My environment looks good"],
   ["No, I haven't", "Yes, but it was a while ago", "Yes, I spent some time outside"],
   ["I am alone and I don't like it", "I am not alone and I don't like it", "I am comfortable"],
