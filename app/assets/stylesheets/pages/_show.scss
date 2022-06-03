@@ -14,7 +14,7 @@
 .container-question-content {
   text-align: center;
   margin-top: 50px;
-  height: 45vh;
+  // height: 45vh;
   padding-left: 5vh;
   padding-right: 5vh;
   padding-top: 100px;
@@ -23,4 +23,8 @@
 .container-answers {
   margin: auto;
   height: 45vh;
+}
+
+.container-back-button {
+  padding-top: 80px;
 }

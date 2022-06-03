@@ -4,6 +4,9 @@
   padding: 24px;
 }
 
+.container-quiz-results h2 {
+  padding-bottom: 16px;
+}
 .container-results-actions {
   display: flex;
   flex-direction: column;
@@ -16,8 +19,8 @@
 .container-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  row-gap: 16px;
+  justify-content: flex-start;
+  gap: 16px;
   padding-bottom: 32px;
 }
 
@@ -28,7 +31,6 @@
   align-items: center;
   border: 2px solid #0D3B67;
   border-radius: 2px;
-  // background-color: #EDC5AF;
   height: 65px;
   width: 150px;
 }
@@ -36,6 +38,7 @@
 .card-results-item {
   align-self: center;
 }
+
 .card-results-item a {
   font-size: 16px;
   color: #0D3B67;
