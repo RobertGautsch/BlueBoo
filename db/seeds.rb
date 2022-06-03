@@ -94,15 +94,19 @@ answer_options = [
   ["No, not at all", "Not really", "Yes, I am very calm"],
   ["Yes", "I am not sure", "No, I am feeling feelings"]
 ]
-
+counter = 0
 question_data.each do |question|
   Question.create!(
     content: question[0],
     category: question[1],
-    option1: "Option 1",
-    option2: "Option 2",
-    option3: "Option 3"
+    # option1: "option 1",
+    # option2: "option 2",
+    # option3: "option 3"
+    option1: answer_options[counter][0],
+    option2: answer_options[counter][1],
+    option3: answer_options[counter][2]
   )
+  counter += 1
 end
 
 puts "16 questions created"
