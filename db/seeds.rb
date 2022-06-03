@@ -76,6 +76,25 @@ question_data = [
   ["Do you feel calm?", 'empty']
 ]
 
+answer_options = [
+  ["No, I need a meal", "I could use a snack", "Yes, not feeling hungry"],
+  ["No and I can still take it", "No, but it's too late to take it now", "Yes or no need to take any"],
+  ["No, I am very tired", "No, I am a bit sleepy", "Yes, I am well rested"],
+  ["Not even close", "Not quite", "Yes, I am well hydrated"],
+  ["Yes, I am in pain", "Something hurts a little", "No, I am not feeling any pain"],
+  ["I don't feel clean and it bothers me", "I could use some refreshment", "No, I feel clean"],
+  ["It's a mess or it's dirty", "It's a little untidy", "My environment looks good"],
+  ["No, I haven't", "Yes, but it was a while ago", "Yes, I spent some time outside"],
+  ["I am alone and I don't like it", "I am not alone and I don't like it", "I am comfortable"],
+  ["Yes, I have", "I can't really do anything about it", "Nothing in particular"],
+  ["I feel anxious", "A little bit", "Not at all"],
+  ["I feel depressed", "A little bit", "Not at all"],
+  ["I am feeling quite dizzy", "A little bit dizzy", "No, I am fine"],
+  ["Yes, I have a hard time getting up", "I am a little low on energy", "No, I have a lot"],
+  ["No, not at all", "Not really", "Yes, I am very calm"],
+  ["Yes", "I am not sure", "No, I am feeling feelings"]
+]
+
 question_data.each do |question|
   Question.create!(
     content: question[0],
