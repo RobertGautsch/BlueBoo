@@ -131,36 +131,64 @@ puts "created an answer for each question, each answer containing between 2 and 
 
 Question.all.each do |question|
   suggestion1 = Suggestion.new(
-    title: Faker::TvShows::RuPaul.quote,
-    content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    # title: Faker::TvShows::RuPaul.quote,
+    # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    title: "Great job!",
+    content: "Eating well can improve your sense of wellbeing and your mood!"
   )
   suggestion1.question = question
   suggestion1.answer_type = "good"
   suggestion1.save!
 
   suggestion2 = Suggestion.new(
-    title: Faker::TvShows::RuPaul.quote,
-    content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    # title: Faker::TvShows::RuPaul.quote,
+    # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    title: "Get a snack",
+    content: "If you feel just slightly hungry you could have a snack, that could be fruit, veggies, nuts, crackers, cereal, a yogurt or something like chips or chocolate if you feel like it!"
   )
   suggestion2.question = question
-  suggestion2.answer_type = "bad"
+  suggestion2.answer_type = "neutral"
   suggestion2.save!
 
   suggestion3 = Suggestion.new(
-    title: Faker::TvShows::RuPaul.quote,
-    content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    # title: Faker::TvShows::RuPaul.quote,
+    # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    title: "Cook something for yourself",
+    content: "If you have groceries at home, it might be nice to cook something for yourself. If you’re very hungry right NOW, maybe you can have something like a slice of bread for the start to satisfy that initial hunger and give you the necessary energy that you need for cooking a nice meal."
   )
   suggestion3.question = question
-  suggestion3.answer_type = "neutral"
+  suggestion3.answer_type = "bad"
   suggestion3.save!
 
   suggestion4 = Suggestion.new(
-    title: Faker::TvShows::RuPaul.quote,
-    content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    # title: Faker::TvShows::RuPaul.quote,
+    # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    title: "Order something online",
+    content: "A pricy option but a good solution when you don't have groceries at home or no energy to prepare something is ordering food online. To meet the minimum order amount while ordering for one person, you would even order some more to have your next lunch or dinner covered!"
   )
   suggestion4.question = question
-  suggestion4.answer_type = "neutral"
+  suggestion4.answer_type = "bad"
   suggestion4.save!
+
+  suggestion5 = Suggestion.new(
+    # title: Faker::TvShows::RuPaul.quote,
+    # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    title: "Accomodate yourself",
+    content: "It might be a nice idea to sit down and listen to an interesting podcast while cutting ingredients."
+  )
+  suggestion5.question = question
+  suggestion5.answer_type = "bad"
+  suggestion5.save!
+
+  suggestion6 = Suggestion.new(
+    # title: Faker::TvShows::RuPaul.quote,
+    # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+    title: "Quick meals",
+    content: "If you want to make something super fast, you could go for something like pre-cooked Tortellini or pre-cooked rice and mix it with frozen veggies and a ready-made sauce in a glas.  A one-pot meal can be an easy-to-prepare choice that at the same time does not produce too many dirty dishes."
+  )
+  suggestion6.question = question
+  suggestion6.answer_type = "bad"
+  suggestion6.save!
 end
 
 puts "one suggestion for each answer created"

@@ -6,7 +6,7 @@
       <h3>Needs attention</h3>
     </div>
     <div class="container-cards">
-      <% @goods.each do |answer| %>
+      <% @bads.each do |answer| %>
         <div class="card-results-item">
           <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
           <p>Read more →</p>
@@ -34,7 +34,7 @@
       <h3>You did great!</h3>
     </div>
     <div class="container-cards">
-      <% @bads.each do |answer| %>
+      <% @goods.each do |answer| %>
         <div class="card-results-item">
           <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
           <p>Read more →</p>

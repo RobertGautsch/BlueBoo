@@ -5,13 +5,13 @@
     </div>
     <div class='container-answers'>
       <div>
-        <%= link_to "#{@question.option1}", answers_path(question: @question.id, type: "good", content: @question.option1), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
+        <%= link_to "#{@question.option1}", answers_path(question: @question.id, type: "bad", content: @question.option1), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
       </div>
       <div>
         <%= link_to "#{@question.option2}", answers_path(question: @question.id, type: "neutral", content: @question.option2), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
       </div>
       <div>
-        <%= link_to "#{@question.option3}", answers_path(question: @question.id, type: "bad", content: @question.option3), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
+        <%= link_to "#{@question.option3}", answers_path(question: @question.id, type: "good", content: @question.option3), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
       </div>
       <div class="container-back-button">
         <% unless  @question.id == Question.first.id%>
