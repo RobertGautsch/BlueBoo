@@ -1,1 +1,13 @@
-<h1>I work</h1>
+<h1>Resources</h1>
+
+<% @resources.each do |resource| %>
+  <div class="resource-card">
+    <div class="resource-picture">
+      <%# Insert article picture here %>
+    </div>
+    <div class="resource-description">
+      <h3><%= resource.title %></h3>
+      <p><%= resource.topic %></p>
+    </div>
+  </div>
+<% end %>
