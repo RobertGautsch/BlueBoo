@@ -1,16 +1,27 @@
-<div class="container-home">
+<div class="container-quiz-results">
   <h2>Results</h2>
-  <div class="container-results">
-    <% @goods.each do |answer| %>
-      <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
-    <% end %>
 
-    <% @neutrals.each do |answer| %>
-      <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
-    <% end %>
+  <div class="container-results-actions">
+    <div class="card-results-item">
+      <% @goods.each do |answer| %>
+        <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+      <% end %>
+    </div>
+  </div>
 
-    <% @bads.each do |answer| %>
-      <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
-    <% end %>
+  <div class="container-results-actions">
+    <div class="card-results-item">
+      <% @neutrals.each do |answer| %>
+        <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container-results-actions">
+    <div class="card-results-item">
+      <% @bads.each do |answer| %>
+        <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+      <% end %>
+    </div>
   </div>
 </div>
