@@ -15,7 +15,7 @@
       </div>
           <div>
       <% unless  @question.id == Question.first.id%>
-        <%= link_to "Back", @question.back %>
+        <%= link_to "← Back", @question.back, class: "link-questions" %>
       <% end %>
     <!--
       <% unless  @question.id == Question.last.id %>
