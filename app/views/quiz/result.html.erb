@@ -1,18 +1,16 @@
-<h2>I work</h2>
-<ul>
-  <% @goods.each do |answer| %>
-    <li><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></li>
-  <% end %>
-</ul>
+<div class="container-home">
+  <h2>Results</h2>
+  <div class="container-results">
+    <% @goods.each do |answer| %>
+      <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+    <% end %>
 
-<ul>
-  <% @neutrals.each do |answer| %>
-    <li><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></li>
-  <% end %>
-</ul>
+    <% @neutrals.each do |answer| %>
+      <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+    <% end %>
 
-<ul>
-  <% @bads.each do |answer| %>
-    <li><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></li>
-  <% end %>
-</ul>
+    <% @bads.each do |answer| %>
+      <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+    <% end %>
+  </div>
+</div>
