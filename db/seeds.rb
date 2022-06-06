@@ -223,7 +223,7 @@ puts "10 resources created"
   Therapist.create!(
     first_name: Faker::Games::Pokemon.name,
     last_name: Faker::Creature::Dog.name,
-    address: Faker::Address.full_address,
+    address: "Schönhauser Allee 61, 10437 Berlin",
     individual_therapy: [true, false].sample,
     group_therapy: [true, false].sample,
     available_places: [true, false].sample,
