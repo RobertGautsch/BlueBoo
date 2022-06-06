@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :answers, only: [:show, :create]
   resources :user_activities, only: [:edit, :update]
   resources :questions, only: [:show]
+  resources :therapists, only: [:index, :show, :new, :create :edit, :update]
 end
