@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_130517) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_102136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,6 +96,44 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_130517) do
     t.index ["question_id"], name: "index_suggestions_on_question_id"
   end
 
+  create_table "therapist_calling_hours", force: :cascade do |t|
+    t.string "weekday"
+    t.string "start_time"
+    t.string "end_time"
+    t.bigint "therapist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["therapist_id"], name: "index_therapist_calling_hours_on_therapist_id"
+  end
+
+  create_table "therapist_therapy_types", force: :cascade do |t|
+    t.bigint "therapist_id", null: false
+    t.bigint "therapy_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["therapist_id"], name: "index_therapist_therapy_types_on_therapist_id"
+    t.index ["therapy_type_id"], name: "index_therapist_therapy_types_on_therapy_type_id"
+  end
+
+  create_table "therapists", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.boolean "individual_therapy"
+    t.boolean "group_therapy"
+    t.boolean "available_places"
+    t.integer "waiting_time"
+    t.string "telephone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "therapy_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_activities", force: :cascade do |t|
     t.bigint "activity_id", null: false
     t.bigint "user_id", null: false
@@ -125,6 +163,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_130517) do
   add_foreign_key "answers", "questions"
   add_foreign_key "assessments", "users"
   add_foreign_key "suggestions", "questions"
+  add_foreign_key "therapist_calling_hours", "therapists"
+  add_foreign_key "therapist_therapy_types", "therapists"
+  add_foreign_key "therapist_therapy_types", "therapy_types"
   add_foreign_key "user_activities", "activities"
   add_foreign_key "user_activities", "users"
 end
