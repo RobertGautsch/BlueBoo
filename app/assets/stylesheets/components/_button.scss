@@ -9,6 +9,7 @@ button {
   padding: 10px 24px 10px 24px;
   transition: box-shadow 0.4s;
 }
+
 // Main Button
 .button-main {
   color: #F5F0ED;
@@ -26,20 +27,10 @@ button {
 .button-secondary {
   color: #F5F0ED;
   background-color: #f5f0ed70;
-  transition: box-shadow 0.4s;
-}
-
-.button-secondary a {
-  color: #F5F0ED;
-  text-decoration: none;
-  font-family: 'Capriola', sans-serif;
-  font-size: 20px;
-  line-height: 0;
 }
 
 .button-secondary:hover {
   box-shadow: 4px 4px 0 #ff7c4471;
-  color: #ff6a2a;
 }
 
 .button-secondary a:hover {
@@ -59,10 +50,7 @@ button {
   margin-bottom: 16px;
 }
 
-.button-tertiary a {
+.button-tertiary:hover {
+  background-color: #FF7C44;
   color: #F5F0ED;
-  text-decoration: none;
-  font-family: 'Capriola', sans-serif;
-  font-size: 20px;
-  line-height: 0;
 }
