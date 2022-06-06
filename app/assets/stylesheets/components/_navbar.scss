@@ -1,4 +1,3 @@
-
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
@@ -10,4 +9,23 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-toggler {
+  border: transparent;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-collapse {
+  padding: 0 12px;
+}
+
+.nav-link {
+  font-family: 'Capriola', sans-serif;
 }

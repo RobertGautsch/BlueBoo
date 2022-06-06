@@ -1,4 +1,4 @@
-button {
+.button {
   font-family: 'Capriola', sans-serif;
   font-size: 20px;
   line-height: 0;
@@ -53,4 +53,14 @@ button {
 .button-tertiary:hover {
   background-color: #FF7C44;
   color: #F5F0ED;
+}
+
+
+// Modal button
+#button-proceed {
+  background-color: #FF7C44;
+  color: #0D3B67;
+  text-decoration: none;
+  font-family: 'Capriola', sans-serif;
+  font-size: 16px;
 }
