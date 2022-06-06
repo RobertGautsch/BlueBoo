@@ -1,3 +1,3 @@
 class TherapistCallingHour < ApplicationRecord
-  belongs_to :therappist
+  belongs_to :therapist
 end
