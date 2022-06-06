@@ -1,5 +1,10 @@
 <h1>I work</h1>
 
+<div style="width: 90%; height: 400px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <% @therapists.each do |therapist| %>
 <div>
     <p><%= therapist.first_name %></p>
