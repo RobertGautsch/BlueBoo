@@ -1,41 +1,40 @@
-// Main Button
-.button-main {
-  background-color: #FF7C44;
+button {
+  font-family: 'Capriola', sans-serif;
+  font-size: 20px;
+  line-height: 0;
   border: 2px solid #0D3B67;
   border-radius: 2px;
   width: 320px;
   height: 45px;
   padding: 10px 24px 10px 24px;
-  box-shadow: 4px 4px 0 #135494;
-  margin-bottom: 20px;
-  line-height: 0;
+  transition: box-shadow 0.4s;
 }
 
-.button-main a {
+// Main Button
+.button-main {
   color: #F5F0ED;
-  text-decoration: none;
-  font-family: 'Capriola', sans-serif;
-  font-size: 20px;
-  line-height: 0;
+  background-color: #FF7C44;
+  margin-bottom: 20px;
+}
+
+.button-main:hover {
+  box-shadow: 4px 4px 0 #135494;
+  background-color: #ff6a2a;
 }
 
 
 // Secondary Button
 .button-secondary {
+  color: #F5F0ED;
   background-color: #f5f0ed70;
-  border: 2px solid #0D3B67;
-  border-radius: 2px;
-  width: 320px;
-  height: 45px;
-  padding: 10px 24px 10px 24px;
+}
+
+.button-secondary:hover {
   box-shadow: 4px 4px 0 #ff7c4471;
 }
 
-.button-secondary a {
-  color: #F5F0ED;
-  text-decoration: none;
-  font-family: 'Capriola', sans-serif;
-  font-size: 20px;
+.button-secondary a:hover {
+  color: #ff6a2a;
 }
 
 
@@ -51,9 +50,7 @@
   margin-bottom: 16px;
 }
 
-.button-tertiary a {
+.button-tertiary:hover {
+  background-color: #FF7C44;
   color: #F5F0ED;
-  text-decoration: none;
-  font-family: 'Capriola', sans-serif;
-  font-size: 20px;
 }
