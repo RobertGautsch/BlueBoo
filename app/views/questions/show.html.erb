@@ -17,6 +17,8 @@
         <% unless  @question.id == Question.first.id%>
           <%= link_to "← Back", @question.back, class: "link-questions" %>
         <% end %>
+      </div>
+    </div>
     <!--
       <% unless  @question.id == Question.last.id %>
         <%= link_to "Next", @question.next %>
@@ -24,9 +26,12 @@
         <%= link_to "Results", result_path %>
       <% end %>
     -->
+      <div class ="container-progress-bar">
+        <%# <progress class="progress" value="<%= (current_user.assessments.last.answers.count + 1 ) * 6.25 %>
+        <%# " max="100"></progress> %>
+        <%# <progress class="progress is-warning" value="75" max="100">75%</progress> %>
+        <progress class="completion-bar" value="<%= (current_user.assessments.last.answers.count + 1 ) * 6.25 %>" max="100"></progress>
+      </div>
     </div>
-    </div>
-
-
   </div>
 </div>
