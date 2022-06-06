@@ -1,4 +1,5 @@
 class QuizController < ApplicationController
+  skip_before_action :authenticate_user!, only: :start
   def start
     @question = Question.first
     Assessment.create(user: current_user)
