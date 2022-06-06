@@ -218,4 +218,19 @@ titles.each do |title|
 end
 
 puts "10 resources created"
+
+3.times do
+  Thearpist.create!(
+    first_name: Faker::Games::Pokemon.name,
+    last_name: Faker::Creature::Dog.name,
+    address: Faker::Address.full_address,
+    individual_therapy: [true, false].sample,
+    group_therapy: [true, false].sample,
+    available_places: [true, false].sample,
+    waiting_time: "3 months",
+    telephone_number: "+49799 148368"
+  )
+end
+
+puts "3 therapists created"
 puts "seeding done"
