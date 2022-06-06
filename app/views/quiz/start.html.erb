@@ -5,11 +5,11 @@
     <p>With this assessment we want to help you with that.</p>
   </div>
   <div>
-    <button class="button-main" data-bs-toggle="modal" data-bs-target="#exampleModal"><%= link_to "Start", question_path(@question) %></button>
+    <%= link_to(@question) do %>
+      <button class="button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">Start</button>
+    <% end %>
   </div>
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -31,5 +31,4 @@
     </div>
   </div>
 </div>
-
 <!-- Modal -->

@@ -4,14 +4,12 @@
   </div>
 
   <div class="container-buttons">
-    <button class="button-main">
-      <%= link_to "Needs Assessment", "/start" %>
-    </button>
-    <div>
-    <button class="button-secondary">
-      <%= link_to "SOS", "/sos" %>
-    </button>
-    </div>
-  </div>
+    <%= link_to(start_path) do %>
+      <button class="button-main">Needs Assessment</button>
+    <% end %>
 
+    <%= link_to(sos_path) do %>
+      <button class="button-secondary">SOS</button>
+    <% end %>
+  </div>
 </div>
