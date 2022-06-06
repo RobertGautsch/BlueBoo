@@ -2,7 +2,11 @@ class TherapistsController < ApplicationController
   before_action :set_therapist, only: [:show, :edit, :upate]
 
   def index
-    @therapists = Therapist.all
+    if params[:query].present?
+      @therapists = policy_scope(Therapist.where())
+    else
+      @therapists = Therapist.all
+    end
   end
 
   def show
