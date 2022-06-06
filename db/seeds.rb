@@ -220,7 +220,7 @@ end
 puts "10 resources created"
 
 3.times do
-  Thearpist.create!(
+  Therapist.create!(
     first_name: Faker::Games::Pokemon.name,
     last_name: Faker::Creature::Dog.name,
     address: Faker::Address.full_address,
@@ -231,6 +231,6 @@ puts "10 resources created"
     telephone_number: "+49799 148368"
   )
 end
-
 puts "3 therapists created"
+
 puts "seeding done"
