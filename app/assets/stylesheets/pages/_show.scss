@@ -28,3 +28,36 @@
 .container-back-button {
   padding-top: 80px;
 }
+
+.container-progress-bar {
+  text-align: center;
+  padding-left: 5vh;
+  padding-right: 5vh;
+}
+
+// .completion-bar {
+//   // border: 0;
+//   height: 32px;
+//   width: 320px;
+//   // // border-radius:3px;
+//   // -webkit-appearance: none;
+//   accent-color: $yellow;
+// }
+
+
+progress {
+  accent-color: #135494;
+  height: 40px;
+  width: 320px;
+  // border-radius: 2px;
+}
+
+progress::-webkit-progress-bar {
+  height: 40px;
+  width: 320px;
+  background-color: transparent;
+  // border-radius: 2px;
+}
+progress::-webkit-progress-value {
+  accent-color: #135494;
+}
