@@ -1,0 +1,9 @@
+<h1>I work</h1>
+
+<% @therapists.each do |therapist| %>
+<div>
+    <p><%= therapist.first_name %></p>
+    <p>Places currently available?</p><%= therapist.available_places %>
+    <%= therapist.address %>
+</div>
+<% end %>
