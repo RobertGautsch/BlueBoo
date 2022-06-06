@@ -1,3 +1,24 @@
+<%= form_tag therapists_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for city"
+  %>
+  <%= submit_tag "Search"%>
+<% end %>
+
+<% form_tag therapists_path, method: :get do %>
+<select name="therapist_type" id="">
+  <option value="None">Type of therapy</option>
+  <option value="Behavioral">Behavioral</option>
+  <option value="Cognitive-behavioral">Cognitive behavioral</option>
+  <option value="Psychoanalysis">Psychoanalysis</option>
+  <option value="Psychodynamic">Psychodynamic</option>
+  <option value="Humanistic">Humanistic</option>
+  <option value="Integrative">Integrative</option>
+</select>
+
+
 <% @therapists.each do |therapist| %>
 <div>
     <p><%= therapist.first_name %></p>

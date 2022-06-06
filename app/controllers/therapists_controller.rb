@@ -3,7 +3,7 @@ class TherapistsController < ApplicationController
 
   def index
     if params[:query].present?
-      @therapists = policy_scope(Therapist.where())
+      @therapists = Therapist.where("address ILIKE ?", "%#{params[:query]}%")
     else
       @therapists = Therapist.all
     end
