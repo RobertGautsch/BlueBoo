@@ -7,7 +7,7 @@ class TherapistsController < ApplicationController
       @therapists = Therapist.where("address ILIKE ?", "%#{params[:query]}%")
     else
       @therapists = Therapist.all
-
+    end
 
     @markers = @therapists.geocoded.map do |therapist|
       {
