@@ -220,7 +220,8 @@ titles.each do |title|
     title: title,
     text: Faker::Lorem.paragraph(sentence_count: 10, supplemental: false, random_sentences_to_add: 10),
     topic: topics.sample,
-    reading_duration: (rand(1..4) * 5)
+    reading_duration: (rand(1..4) * 5),
+    image_url: "placeholder.jpg"
   )
 end
 

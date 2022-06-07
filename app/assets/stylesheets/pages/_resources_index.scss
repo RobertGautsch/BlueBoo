@@ -1,0 +1,46 @@
+.container-resources h1 {
+  padding-bottom: 16px;
+}
+
+.container-resources a {
+  text-decoration: none;
+}
+
+.container-resources ul {
+  padding: 0;
+  list-style: none;
+}
+
+.resource-element {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.019) 0px 2px 4px -1px;
+  height: 216px;
+  margin-bottom: 24px;
+  padding: 8px;
+}
+
+.resource-element h2 {
+  font-size: 24px;
+  color: #0D3B67;
+}
+
+.resource-element h3 {
+  font-size: 14px;
+  font-family: 'Capriola', sans-serif;
+  color: #0d3c6751;
+  text-transform: uppercase;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.resource-card img {
+  width: 323px;
+  height: 130px;
+}
