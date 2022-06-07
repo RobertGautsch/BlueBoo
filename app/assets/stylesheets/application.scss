@@ -15,10 +15,11 @@
 @import "pages/start";
 @import "pages/sos";
 @import "components/modal";
+@import "pages/resources_index";
 
 // Main CSS
 body {
-  background-color: #F5F0ED;
+  background-color: #f4f3f1;
   margin: 0;
   color: #0D3B67;
 }
@@ -54,82 +55,3 @@ p {
   font-size: 20px;
   line-height: 24px;
 }
-
-.resource-card {
-/* Auto layout */
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding-top: 0px;
-width: 323px;
-height: 209px;
-
-/* 1 - Primary Color */
-border: 2px solid #135494;
-filter: drop-shadow(4px 4px 0px #FF8F51);
-border-radius: 1px;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-
-.resource-picture {
-/* Image */
-width: 323px;
-height: 132px;
-background: url(https://blog.sellwerk.de/app/uploads/2019/04/mental_health_header.jpg);
-background-size: contain;
-border-radius: 3px 3px 0px 0px;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-
-.resource-description {
-  /* Auto layout */
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0px 16px;
-position: absolute;
-width: 321.89px;
-height: 77px;
-left: 0px;
-top: 132px;
-
-/* Background Blue */
-background: #D3DCE6;
-border-radius: 0px 0px 3px 3px;
-}
-
- .suggestion-picture {
-  width: 100%;
-  height: 160px;
-  background: url(https://rdb.agency/wp-content/uploads/2020/08/rdb-blog-header-desktop-mental-health-days-1.png);
-  background-size: contain;
- }
-
- .suggestion-card {
-  margin: 10px;
- }
-
- .link-results {
-  margin: 10px;
-  color: #0D3B67;
-  text-decoration: none;
- }
-
- .link-questions {
-  color: #0D3B67;
-  text-decoration: none;
- }
-
- .page-container {
-  height: 100%;
- }
