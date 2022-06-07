@@ -1,13 +1,23 @@
-<h1>Resources</h1>
+<main class="container-resources">
+  <header class="header-resources">
+    <h1>Resources</h1>
+  </header>
 
-<% @resources.each do |resource| %>
-  <div class="resource-card">
-    <div class="resource-picture">
-      <%# Insert article picture here %>
-    </div>
-    <div class="resource-description">
-      <h3><%= resource.title %></h3>
-      <p><%= resource.topic %></p>
-    </div>
-  </div>
-<% end %>
+  <ul class="articles-list">
+    <% @resources.each do |resource| %>
+      <li class="article-element">
+        <%= link_to resource_path(resource) do %>
+          <article class="resource-card">
+            <div class="resource-img">
+              <%# Insert article picture here %>
+            </div>
+            <div class="resource-description">
+              <h2><%= resource.title %></h2>
+              <h3><%= resource.topic %></h3>
+            </div>
+          </article>
+        <% end %>
+      </li>
+      <% end %>
+  </ul>
+</main>
