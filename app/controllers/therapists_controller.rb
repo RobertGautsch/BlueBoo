@@ -2,7 +2,7 @@ class TherapistsController < ApplicationController
   before_action :set_therapist, only: [:show, :edit, :upate]
 
   def index
-    @no_therapists = false
+    # @no_therapists = false
     if params["/therapists"].present?
       # @therapists = Therapist.where("address ILIKE ?", "%#{params[:query]}%")
       # @therapists = Therapist.search_by_address(:query)
