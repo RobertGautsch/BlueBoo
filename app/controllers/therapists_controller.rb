@@ -25,6 +25,7 @@ class TherapistsController < ApplicationController
       end
     else
       @therapists = Therapist.all
+
       @markers = @therapists.geocoded.map do |therapist|
         {
           lat: therapist.latitude,

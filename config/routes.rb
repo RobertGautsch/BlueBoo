@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get "start", to: "quiz#start"
   get "result", to: "quiz#result"
+  get "dashboard", to: "quiz#dashboard"
   get "sos", to: "pages#sos"
   resources :resources, only: [:index, :show]
   resources :answers, only: [:show, :create]
