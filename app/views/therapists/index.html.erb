@@ -1,18 +1,17 @@
-<%= form_tag therapists_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
+<%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+  <%= f.input :query,
     class: "form-control",
     placeholder: "Search for city"
   %>
+  <%= f.input :availability, as: :check_boxes %>
   <%= submit_tag "Search"%>
 <% end %>
 
 <%# <%= form_for :therapy_type, method: :get do |f| %>
-  <%# <%= f.collection_select :query, %>
     <%# params[:query], %>
     <%# TherapyType.order(:name), %>
     <%# :id, :name, include_blank: true %>
-<%# <% end %>
+<%# <% end
 
 <%# <% form_tag therapists_path, method: :get do %>
   <%# <select name="therapist_type" id=""> %>

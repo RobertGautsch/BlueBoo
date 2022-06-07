@@ -8,7 +8,8 @@
     <div class="container-cards">
       <% @bads.each do |answer| %>
         <div class="card-results-item">
-          <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+          <%= link_to "", answer_path(answer, category: answer.question.category), class: 'card-link' %>
+          <h5><%= answer.question.category %></h5>
           <p>Read more →</p>
         </div>
       <% end %>
@@ -22,7 +23,8 @@
     <div class="container-cards">
       <% @neutrals.each do |answer| %>
         <div class="card-results-item">
-          <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+          <%= link_to "", answer_path(answer, category: answer.question.category), class: 'card-link' %>
+          <h5><%= answer.question.category %></h5>
           <p>Read more →</p>
         </div>
       <% end %>
@@ -36,7 +38,8 @@
     <div class="container-cards">
       <% @goods.each do |answer| %>
         <div class="card-results-item">
-          <h5><%= link_to "#{answer.question.category}", answer_path(answer, category: answer.question.category) %></h5>
+          <%= link_to "", answer_path(answer, category: answer.question.category), class: 'card-link' %>
+          <h5><%= answer.question.category %></h5>
           <p>Read more →</p>
         </div>
       <% end %>

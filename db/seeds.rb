@@ -25,6 +25,13 @@ Suggestion.destroy_all
 puts "all suggestions deleted"
 Resource.destroy_all
 puts "all resources deleted"
+Therapist.destroy_all
+puts "all therapists deleted"
+TherapistTherapyType.destroy_all
+puts "all therapist therapy types deleted"
+TherapyType.destroy_all
+puts "all therapy types deleted"
+
 
 user1 = User.new(
   email: "test@test.com",
@@ -213,7 +220,8 @@ titles.each do |title|
     title: title,
     text: Faker::Lorem.paragraph(sentence_count: 10, supplemental: false, random_sentences_to_add: 10),
     topic: topics.sample,
-    reading_duration: (rand(1..4) * 5)
+    reading_duration: (rand(1..4) * 5),
+    image_url: "placeholder.jpg"
   )
 end
 
@@ -233,7 +241,6 @@ puts "10 resources created"
 end
 puts "3 therapists created"
 
-Therapist.first.therapy_type = "Behavioral"
 
 therapy_types = %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative]
 
@@ -241,5 +248,15 @@ therapy_types.each do |therapy_type|
   TherapyType.create!(name: therapy_type)
 end
 puts "6 therapy types created"
+
+therapist = Therapist.first
+therapy_type = TherapyType.where(name: "Behavioral").first
+TherapistTherapyType.create!(therapist: therapist, therapy_type: therapy_type)
+
+therapist2 = Therapist.last
+therapy_type2 = TherapyType.where(name: "Psychoanalysis").first
+TherapistTherapyType.create!(therapist: therapist2, therapy_type: therapy_type2)
+
+puts "linked 2 therapists to therapy type"
 
 puts "seeding done"

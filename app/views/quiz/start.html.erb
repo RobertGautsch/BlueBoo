@@ -5,29 +5,7 @@
   </div>
   <div>
     <%= link_to(@question) do %>
-      <button class="button button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">Start</button>
+      <button class="button button-main">Start</button>
     <% end %>
   </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Trigger Warning</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       <p>This needs assessment is focused on people that are struggling with mental health, but are not currently in a serious crisis.</p>
-        <p>If you feel like you could harm yourself, please call the emergency services at <%= link_to "112", "tel:112" %> now.</p>
-        <p>You can also check our SOS page for more information.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="button-tertiary"><%= link_to "SOS", "/sos" %></button>
-        <button type="button" class="button-tertiary" id="button-proceed" data-bs-dismiss="modal"><%= link_to "Take the quiz", question_path(@question) %></button>
-      </div>
-    </div>
-  </div>
 </main>
-<!-- Modal -->
