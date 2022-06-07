@@ -233,4 +233,13 @@ puts "10 resources created"
 end
 puts "3 therapists created"
 
+Therapist.first.therapy_type = "Behavioral"
+
+therapy_types = %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative]
+
+therapy_types.each do |therapy_type|
+  TherapyType.create!(name: therapy_type)
+end
+puts "6 therapy types created"
+
 puts "seeding done"

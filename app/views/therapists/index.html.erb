@@ -1,4 +1,30 @@
-<h1>I work</h1>
+<%= form_tag therapists_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for city"
+  %>
+  <%= submit_tag "Search"%>
+<% end %>
+
+<%# <%= form_for :therapy_type, method: :get do |f| %>
+  <%# <%= f.collection_select :query, %>
+    <%# params[:query], %>
+    <%# TherapyType.order(:name), %>
+    <%# :id, :name, include_blank: true %>
+<%# <% end %>
+
+<%# <% form_tag therapists_path, method: :get do %>
+  <%# <select name="therapist_type" id=""> %>
+    <%# <option value="None">Type of therapy</option> %>
+    <%# <option value="Behavioral">Behavioral</option> %>
+    <%# <option value="Cognitive-behavioral">Cognitive behavioral</option> %>
+    <%# <option value="Psychoanalysis">Psychoanalysis</option> %>
+    <%# <option value="Psychodynamic">Psychodynamic</option> %>
+    <%# <option value="Humanistic">Humanistic</option> %>
+    <%# <option value="Integrative">Integrative</option> %>
+  <%# </select> %>
+<%# <% end %>
 
 <div style="width: 90%; height: 400px;"
   data-controller="map"

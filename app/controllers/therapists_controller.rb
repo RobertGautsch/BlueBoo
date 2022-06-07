@@ -2,17 +2,19 @@ class TherapistsController < ApplicationController
   before_action :set_therapist, only: [:show, :edit, :upate]
 
   def index
-    # if pararams[:query]
-    #   @therapists = Therapist.where(some condition......)
-    # else
+
+    if params[:query].present?
+      @therapists = Therapist.where("address ILIKE ?", "%#{params[:query]}%")
+    else
       @therapists = Therapist.all
-    # end - Please do not delete
+
 
     @markers = @therapists.geocoded.map do |therapist|
       {
         lat: therapist.latitude,
         lng: therapist.longitude
       }
+
     end
   end
 
