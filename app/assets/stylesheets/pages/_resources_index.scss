@@ -24,6 +24,11 @@
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.019) 0px 2px 4px -1px;
   margin-bottom: 24px;
+  transition: box-shadow 0.4s;
+}
+
+.resource-card:hover {
+  box-shadow: 4px 4px 0 #FF7C44;
 }
 
 .img-preview {
