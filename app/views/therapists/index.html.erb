@@ -1,25 +1,38 @@
-<%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
-  <%= f.input :query,
-    class: "form-control",
-    placeholder: "Search for city"
-  %>
-  <%= f.input :availability, as: :check_boxes %>
-  <%= submit_tag "Search"%>
+<h2>Find therapists</h1>
+
+<% unless @therapists = [] %>
+  <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+    <%= f.input :query,
+      class: "form-control",
+      placeholder: "Search for city",
+      label: false %>
+    <%= f.input :availability, as: :boolean, :label => "has available places" %>
+    <%= submit_tag "Search"%>
+  <% end %>
 <% end %>
 
-<%= link_to "Reset", therapists_path if # something %>
-
-<div style="width: 90%; height: 400px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<% unless @therapists = [] %>
+  <div style="width: 90%; height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+<% end %>
 
 <% @therapists.each do |therapist| %>
-<div>
-    <p><%= therapist.first_name %></p>
-    <p>Places currently available?</p><%= therapist.available_places %>
-    <%= therapist.address %>
-</div>
+  <div>
+      <p><%= therapist.first_name %></p>
+      <p>Places currently available?</p><%= therapist.available_places %>
+      <%= therapist.address %>
+  </div>
+<% end %>
+
+<% if @therapists = [] %>
+  <h2>No therapists found :(</h2>
+  <p>Have you called any therapists recently and want to share the information?</p>
+  <%= link_to "Add a therapist", new_therapist_path %>
+  <p>Want to try looking for something else?</p>
+  <%= link_to "Search again", therapists_path %>
 <% end %>
 
 <%# potentential search form dropdown for therapy types: %>
