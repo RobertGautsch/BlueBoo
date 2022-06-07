@@ -21,9 +21,11 @@
           <li class="nav-item">
             <%= link_to "Needs Assessment", start_path, class: "nav-link"  %>
           </li>
+          <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Last Assessment Results", "/dashboard", class: "nav-link"  %>
           </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to "Therapists in my Area", "/therapists", class: "nav-link"  %>
           </li>
