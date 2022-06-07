@@ -5,11 +5,13 @@
   <article class="article">
     <header>
       <h1><%= @resource.title %></h1>
-      <span><%= @resource.created_at %></span>
-      <span><%= @resource.topic %></span>
+      <div class="container-span">
+        <span><%= @resource.created_at.strftime("%m %B %Y") %></span>
+        <span class="topic"><%= @resource.topic %></span>
+      </div>
     </header>
     <section>
-      <%= @resource.text %>
+      <p><%= @resource.text %></p>
     </section>
   </article>
 </main>
