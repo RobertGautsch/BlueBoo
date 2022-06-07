@@ -5,13 +5,28 @@
     </div>
     <div class='container-answers'>
       <div>
+        <% if user_signed_in? %>
         <%= link_to "#{@question.option1}", answers_path(question: @question.id, type: "bad", content: @question.option1), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
+        <% end %>
+        <% unless user_signed_in? %>
+        <%= link_to "#{@question.option1}", new_user_session_path, class: "btn button-tertiary answers"%>
+        <% end %>
       </div>
       <div>
+        <% if user_signed_in? %>
         <%= link_to "#{@question.option2}", answers_path(question: @question.id, type: "neutral", content: @question.option2), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
+        <% end %>
+        <% unless user_signed_in? %>
+        <%= link_to "#{@question.option2}", new_user_session_path, class: "btn button-tertiary answers"%>
+        <% end %>
       </div>
       <div>
+        <% if user_signed_in? %>
         <%= link_to "#{@question.option3}", answers_path(question: @question.id, type: "good", content: @question.option3), data: { turbo_method: :post }, class: "btn button-tertiary answers" %>
+        <% end %>
+        <% unless user_signed_in? %>
+        <%= link_to "#{@question.option3}", new_user_session_path, class: "btn button-tertiary answers"%>
+        <% end %>
       </div>
       <div class="container-back-button">
         <% unless  @question.id == Question.first.id%>
@@ -27,10 +42,9 @@
       <% end %>
     -->
       <div class ="container-progress-bar">
-        <%# <progress class="progress" value="<%= (current_user.assessments.last.answers.count + 1 ) * 6.25 %>
-        <%# " max="100"></progress> %>
-        <%# <progress class="progress is-warning" value="75" max="100">75%</progress> %>
-        <progress class="completion-bar" value="<%= (current_user.assessments.last.answers.count + 1 ) * 6.25 %>" max="100"></progress>
+        <% if user_signed_in? %>
+        <progress value="<%= (current_user.assessments.last.answers.count + 1 ) * 6.25 %>" max="100"></progress>
+        <% end %>
       </div>
     </div>
   </div>

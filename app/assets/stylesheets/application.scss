@@ -14,6 +14,7 @@
 @import "components/button";
 @import "pages/start";
 @import "pages/sos";
+@import "components/modal";
 
 // Main CSS
 body {
@@ -107,14 +108,6 @@ background: #D3DCE6;
 border-radius: 0px 0px 3px 3px;
 }
 
-.emergency-contacts h4{
- color: #FF8F51;
-}
-
-.emergency-contacts{
-  margin-top: 25px;
- }
-
  .suggestion-picture {
   width: 100%;
   height: 160px;
@@ -135,4 +128,8 @@ border-radius: 0px 0px 3px 3px;
  .link-questions {
   color: #0D3B67;
   text-decoration: none;
+ }
+
+ .page-container {
+  height: 100%;
  }

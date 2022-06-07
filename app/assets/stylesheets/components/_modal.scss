@@ -1,0 +1,36 @@
+// Modal
+.modal-content {
+  background-color: #edd5c8;
+  border-radius: 5px;
+}
+
+.modal-content h5 {
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  color: #FF7C44;
+}
+
+.modal-content p > a {
+  color: #FF7C44;
+  font-weight: bolder;
+}
+
+.modal-footer > .button-tertiary {
+  width: 160px;
+  padding: 0;
+  height: 30px;
+  box-shadow: none;
+  margin: 0;
+}
+
+.modal-footer > .button-tertiary a {
+  color: #0D3B67;
+  font-size: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
