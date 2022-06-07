@@ -2,20 +2,25 @@ class TherapistsController < ApplicationController
   before_action :set_therapist, only: [:show, :edit, :upate]
 
   def index
+    # @no_therapists = false
     if params["/therapists"].present?
       # @therapists = Therapist.where("address ILIKE ?", "%#{params[:query]}%")
       # @therapists = Therapist.search_by_address(:query)
       @therapists = []
-      if params["/therapists"][:query] != "" && params["/therapists"][:availability].count == 2
-        availability = params["/therapists"][:availability].last
-        @therapists = Therapist.where("address ILIKE ? AND available_places = ?", "%#{params["/therapists"][:query]}%", availability)
-      elsif params["/therapists"][:query].present?
-        @address_therapists = Therapist.where("address ILIKE ?", "%#{params["/therapists"][:query]}%")
+      if params["/therapists"][:query] != "" && params["/therapists"][:availability] == "1"
+        # availability = params["/therapists"][:availability].last
+        availability = true
+        @therapists = Therapist.where("address ILIKE ? AND available_places = ?", "%#{params['/therapists'][:query]}%", availability)
+        # no_results?(@therapists)
+      elsif params["/therapists"][:query] != ""
+        @address_therapists = Therapist.where("address ILIKE ?", "%#{params['/therapists'][:query]}%")
         @therapists += @address_therapists
-      elsif params["/therapists"][:availability].count == 2
-        availability = params["/therapists"][:availability].last
+        # no_results?(@therapists)
+      elsif params["/therapists"][:availability] == "1"
+        availability = true
         @available_therapists = Therapist.where(available_places: availability)
         @therapists += @available_therapists
+        # no_results?(@therapists)
       end
       @markers = @therapists.map do |therapist|
         {
@@ -33,8 +38,11 @@ class TherapistsController < ApplicationController
         }
       end
     end
-
   end
+
+  # def no_results?(therapists)
+  #   @no_therapists = true if therapists = []
+  # end
 
   def show
   end
