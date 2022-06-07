@@ -14,33 +14,52 @@
 .resource-element {
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
-  border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.019) 0px 2px 4px -1px;
-  height: 216px;
-  margin-bottom: 24px;
-  padding: 8px;
-}
-
-.resource-element h2 {
-  font-size: 24px;
-  color: #0D3B67;
-}
-
-.resource-element h3 {
-  font-size: 14px;
-  font-family: 'Capriola', sans-serif;
-  color: #0d3c6751;
-  text-transform: uppercase;
 }
 
 .resource-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.019) 0px 2px 4px -1px;
+  margin-bottom: 24px;
 }
 
-.resource-card img {
-  width: 323px;
-  height: 130px;
+.img-preview {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: 0px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.resource-description {
+  padding: 0 16px;
+}
+
+.resource-title h2 {
+  line-height: 24px;
+  padding-bottom: 16px;
+  font-size: 24px;
+  color: #0D3B67;
+}
+
+.resource-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.resource-details h3 {
+  font-size: 14px;
+  color: #0d3c6751;
+  text-transform: uppercase;
+  font-family: 'Capriola', sans-serif;
+}
+
+.resource-details a {
+  color: #FF7C44;
+  font-family: 'Lato', sans-serif;
 }

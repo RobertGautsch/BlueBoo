@@ -8,17 +8,21 @@
       <li class="resource-element">
         <%= link_to resource_path(resource) do %>
           <article class="resource-card">
-            <div class="resource-img">
-              <%# Insert article picture here %>
-              <%= image_tag(resource.image_url) %>
+            <div class="container-img">
+              <%= image_tag resource.image_url, class:"img-preview" %>
             </div>
             <div class="resource-description">
-              <h2><%= resource.title %></h2>
-              <h3 class="tag"><%= resource.topic %></h3>
+              <div class="resource-title">
+                <h2><%= resource.title %></h2>
+              </div>
+              <div class="resource-details">
+                <h3 class="tag"><%= resource.topic %></h3>
+                <%= link_to "Read article →", resource_path(resource), class:"resources-read" %>
+              </div>
             </div>
           </article>
         <% end %>
       </li>
-      <% end %>
+    <% end %>
   </ul>
 </main>
