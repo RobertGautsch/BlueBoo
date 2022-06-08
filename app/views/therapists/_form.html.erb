@@ -1,0 +1,20 @@
+<div class="container-new-therapist-form">
+  <div class="new-therapist-form">
+    <%= simple_form_for(therapist) do |f| %>
+      <div class="new-therapist-form-section">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+      </div>
+      <%= f.input :available_places %>
+      <%= f.input :waiting_time, label: "Waiting time in months" %> <%# we could add a toggle on available_places click here%>
+      <%= f.input :therapy_type, :collection => %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative] %>
+      <div class="new-therapist-form-section">
+        <%= f.input :individual_therapy %>
+        <%= f.input :group_therapy %>
+      </div>
+      <%= f.input :address %>
+      <%= f.input :telephone_number %>
+      <%= f.submit "Create therapist", class: "button button-main" %>
+    <% end %>
+  </div>
+</div>
