@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 // @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+// @import "animate.css";
 
 // Your CSS partials
 @import "components/index";
@@ -16,6 +17,7 @@
 @import "pages/sos";
 @import "components/modal";
 @import "pages/resources_index";
+
 
 
 // Main CSS
@@ -133,7 +135,7 @@ border-radius: 0px 0px 3px 3px;
  }
 
  .page-container {
-  height: 100%;
+  max-height: 100vh;
  }
 
  #result-counter {

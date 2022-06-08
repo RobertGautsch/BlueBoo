@@ -12,3 +12,6 @@ application.register("map", MapController)
 
 import DashboardController from "./dashboard_controller.js"
 application.register("dashboard", DashboardController)
+
+import AnimateController from "./animate_controller.js"
+application.register("animate", AnimateController)
