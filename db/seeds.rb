@@ -69,7 +69,7 @@ question_data = [
   ["Have you taken your medication?", "medication"],
   ["Have you slept more than 8 hours?", "rest"],
   ["Have you had two liters of water or more today?", "hydration"],
-  ["Are you in physical pain?", "physical health"],
+  ["Are you in physical pain?", "health"],
   ["Do you feel sweaty or dirty?", "hygiene"],
   ["Is your environment dirty or untidy?", "tidyness"],
   ["Have you been outside today?", "outside"],

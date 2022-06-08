@@ -8,6 +8,7 @@
     <div class="container-cards">
       <% @bads.each do |answer| %>
         <div class="card-results-item">
+          <%= image_tag answer.question.icon_path, class:"icon-url" %>
           <%= link_to "", answer_path(answer, category: answer.question.category), class: 'card-link' %>
           <h5><%= answer.question.category %></h5>
           <p>Read more →</p>
