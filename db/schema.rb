@@ -140,6 +140,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_082438) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "therapy_type"
   end
 
   create_table "therapy_types", force: :cascade do |t|

@@ -3,6 +3,7 @@ class TherapistsController < ApplicationController
 
   def index
     # @no_therapists = false
+    @therapist = Therapist.new
     if params["/therapists"].present?
       # @therapists = Therapist.where("address ILIKE ?", "%#{params[:query]}%")
       # @therapists = Therapist.search_by_address(:query)
@@ -54,7 +55,7 @@ class TherapistsController < ApplicationController
   def create
     @therapist = Therapist.new(therapist_params)
     if @therapist.save
-      redirect_to therapist_path(@therapist)
+      redirect_to therapists_path
     else
       render :new, status: :unprocessable_entity
     end
