@@ -64,3 +64,21 @@
   font-family: 'Capriola', sans-serif;
   font-size: 16px;
 }
+
+// Small button for logins etc
+.button-small {
+  font-family: 'Capriola', sans-serif;
+  font-size: 20px;
+  line-height: 0;
+  border: 2px solid #0D3B67;
+  border-radius: 2px;
+  height: 45px;
+  padding: 10px 24px 10px 24px;
+  transition: box-shadow 0.4s;
+}
+
+.button-small {
+  color: #F5F0ED;
+  background-color: #FF7C44;
+  margin-bottom: 20px;
+}
