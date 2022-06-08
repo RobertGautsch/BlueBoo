@@ -28,11 +28,6 @@
         <%= link_to "#{@question.option3}", new_user_session_path, class: "btn button-tertiary answers"%>
         <% end %>
       </div>
-      <div class="container-back-button">
-        <% unless  @question.id == Question.first.id%>
-          <%= link_to "← Back", @question.back, class: "link-questions" %>
-        <% end %>
-      </div>
     </div>
     <!--
       <% unless  @question.id == Question.last.id %>
@@ -41,15 +36,18 @@
         <%= link_to "Results", result_path %>
       <% end %>
     -->
-
     </div>
   </div>
-
-
-
-  <div class ="container-progress-bar">
-        <% if user_signed_in? %>
-        <progress value="<%= (current_user.assessments.last.answers.count + 1 ) * 6.25 %>" max="100"></progress>
-        <% end %>
-      </div>
+  <div class="container-back-padding">
+    <div class ="container-progress-bar">
+      <% if user_signed_in? %>
+      <progress value="<%= (current_user.assessments.last.answers.count + 1 ) * 6.25 %>" max="100"></progress>
+      <% end %>
+    </div>
+    <div class="container-back-button">
+      <% unless  @question.id == Question.first.id%>
+        <%= link_to "← Back", @question.back, class: "link-questions" %>
+      <% end %>
+    </div>
+  </div>
 </main>
