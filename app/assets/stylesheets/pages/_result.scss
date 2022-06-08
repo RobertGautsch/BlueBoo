@@ -4,16 +4,19 @@
   padding: 24px;
 }
 
-.container-quiz-results h2 {
+.container-quiz-results h1 {
   padding-bottom: 16px;
 }
+
 .container-results-actions {
   display: flex;
   flex-direction: column;
+  padding-bottom: 16px;
 }
 
-.container-results-actions h3 {
+.container-results-actions h2 {
   color: #FF7C44;
+  padding-bottom: 8px;
 }
 
 .container-cards {
@@ -25,19 +28,22 @@
 }
 
 .card-results-item {
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.019) 0px 2px 4px -1px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid #0D3B67;
-  border-radius: 2px;
-  height: 65px;
+  border: 2px solid #0d3c671f;
+  border-radius: 4px;
   width: 150px;
   position: relative;
+  transition: box-shadow 0.4s;
 }
 
-.card-results-item {
-  align-self: center;
+.card-results-item:hover {
+  box-shadow: 4px 4px 0 #FF7C44;
+
 }
 
 .card-results-item a {
@@ -49,18 +55,25 @@
   line-height: 0;
 }
 
+.card-results-item h5 {
+  text-transform: capitalize;
+}
+
 .card-results-item p {
   font-family: 'Capriola', sans-serif;
   font-size: 12px;
-  padding: 0;
-  margin: 0;
   color: #0d3c6774;
 }
 
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+// .card-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+// }
+
+.results-icon {
+  width: 100px;
+  padding: 16px;
 }
