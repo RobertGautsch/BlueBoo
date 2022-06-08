@@ -1,14 +1,14 @@
 <div class="container-quiz-results">
-  <h2>Results</h2>
+  <h1>Results</h1>
 
   <div class="container-results-actions">
     <div class="container-h3">
-      <h3>Needs attention</h3>
+      <h2>Needs attention</h2>
     </div>
     <div class="container-cards">
       <% @bads.each do |answer| %>
         <div class="card-results-item">
-          <%= image_tag answer.question.icon_path, class:"icon-url" %>
+          <%= image_tag answer.question.icon_path, class:"results-icon" %>
           <%= link_to "", answer_path(answer, category: answer.question.category), class: 'card-link' %>
           <h5><%= answer.question.category %></h5>
           <p>Read more →</p>
@@ -19,11 +19,12 @@
 
   <div class="container-results-actions">
     <div class="container-h3">
-      <h3>Could use some help</h3>
+      <h2>Could use some help</h2>
     </div>
     <div class="container-cards">
       <% @neutrals.each do |answer| %>
         <div class="card-results-item">
+          <%= image_tag answer.question.icon_path, class:"results-icon" %>
           <%= link_to "", answer_path(answer, category: answer.question.category), class: 'card-link' %>
           <h5><%= answer.question.category %></h5>
           <p>Read more →</p>
@@ -34,11 +35,12 @@
 
   <div class="container-results-actions">
     <div class="container-h3">
-      <h3>You did great!</h3>
+      <h2>You did great!</h2>
     </div>
     <div class="container-cards">
       <% @goods.each do |answer| %>
         <div class="card-results-item">
+          <%= image_tag answer.question.icon_path, class:"results-icon" %>
           <%= link_to "", answer_path(answer, category: answer.question.category), class: 'card-link' %>
           <h5><%= answer.question.category %></h5>
           <p>Read more →</p>
