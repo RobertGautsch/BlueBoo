@@ -21,7 +21,7 @@
           <li class="nav-item">
             <%= link_to "Needs Assessment", start_path, class: "nav-link"  %>
           </li>
-          <% if user_signed_in? %>
+          <% if user_signed_in? || !current_user.assessments.nil? %>
           <li class="nav-item">
             <%= link_to "Last Assessment Results", "/dashboard", class: "nav-link"  %>
           </li>
