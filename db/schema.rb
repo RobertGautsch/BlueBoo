@@ -104,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_082438) do
     t.datetime "updated_at", null: false
     t.bigint "question_id"
     t.string "answer_type"
+    t.string "icon_url"
     t.index ["question_id"], name: "index_suggestions_on_question_id"
   end
 
