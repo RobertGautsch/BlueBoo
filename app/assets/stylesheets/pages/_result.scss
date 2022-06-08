@@ -7,13 +7,16 @@
 .container-quiz-results h1 {
   padding-bottom: 16px;
 }
+
 .container-results-actions {
   display: flex;
   flex-direction: column;
+  padding-bottom: 16px;
 }
 
 .container-results-actions h2 {
   color: #FF7C44;
+  padding-bottom: 8px;
 }
 
 .container-cards {
@@ -31,10 +34,16 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid #0D3B67;
-  border-radius: 2px;
+  border: 2px solid #0d3c671f;
+  border-radius: 4px;
   width: 150px;
   position: relative;
+  transition: box-shadow 0.4s;
+}
+
+.card-results-item:hover {
+  box-shadow: 4px 4px 0 #FF7C44;
+
 }
 
 .card-results-item a {
@@ -56,13 +65,13 @@
   color: #0d3c6774;
 }
 
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
+// .card-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+// }
 
 .results-icon {
   width: 100px;
