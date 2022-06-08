@@ -33,7 +33,7 @@ class TherapistsController < ApplicationController
     end
 
     @therapist_for_new = Therapist.new
-    @therapist_for_update = Therapist.find(params[:id])
+    # @therapist_for_update = Therapist.find(params[:id])
   end
 
   def show

@@ -1,6 +1,6 @@
 <div class="container-new-therapist-form">
   <div class="new-therapist-form">
-    <%= simple_form_for(therapist) do |f| %>
+    <%= simple_form_for(Therapist.new) do |f| %>
       <div class="new-therapist-form-section">
         <%= f.input :first_name %>
         <%= f.input :last_name %>

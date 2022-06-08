@@ -1,7 +1,7 @@
 <h2>Find therapists</h2>
 
 <!-- Button trigger modal -->
-<button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#newTherapist">
+<button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add a new therapist
 </button>
 
@@ -29,9 +29,10 @@
       <p><%= therapist.first_name %></p>
       <p>Places currently available?</p><%= therapist.available_places %>
       <%= therapist.address %>
-      <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#updateTherapist">
+      <%= link_to "Edit", edit_therapist_path(therapist) %>
+      <%# <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#updateTherapist">
         Edit
-      </button>
+      </button> %>
   </div>
 <% end %>
 
@@ -45,11 +46,11 @@
 <% end %>
 
 <!-- Modal for New therapist -->
-<div class="modal fade" id="newTarget" tabindex="-1" aria-labelledby="newTargetLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="newTargetLabel">Add a new therapist</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add a new therapist</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -63,7 +64,8 @@
   </div>
 </div>
 
-<!-- Modal for Update therapist -->
+<!-- Modal for Update therapist
+
 <div class="modal fade" id="updateTherapist" tabindex="-1" aria-labelledby="updateTherapistLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -81,3 +83,5 @@
     </div>
   </div>
 </div>
+
+-->
