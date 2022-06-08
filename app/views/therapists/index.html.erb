@@ -31,19 +31,27 @@
   </div>
 
   <% @therapists.each do |therapist| %>
-    <div>
-        <p><%= therapist.first_name %></p>
-        <%= therapist.address %>
-        <%= link_to "Edit", edit_therapist_path(therapist) %>
+    <div class="container-card-therapist">
+        <h2><%= therapist.first_name %></h2>
+        <h3><%= therapist.address %></h3>
+
+        <div class="container-availability">
+          <% if therapist.available_places == true %>
+            <p>✅ Has open spots</p>
+          <% else %>
+            <p>❌ No availability</p>
+          <% end %>
+        </div>
+        <h3><%=  %></h3>
+        <%= link_to "Update", edit_therapist_path(therapist) %>
     </div>
   <% end %>
 
   <% if @therapists == [] %>
-    <br>
-    <h2>No therapists found</h2>
+    <h2>No therapists found. </h2>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tmsiddoc.json"  background="transparent"  speed="1"  style="width: 50%; height: 50%;"  loop  autoplay></lottie-player>
-    <p>Have you called any therapists recently and want to share the information?</p>
+    <h3>Be the first one to add a therapist in your city.</h3>
     <%= link_to "Add a therapist", new_therapist_path, class: "button-main" %>
   <% end %>
 
