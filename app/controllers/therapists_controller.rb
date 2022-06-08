@@ -1,5 +1,5 @@
 class TherapistsController < ApplicationController
-  before_action :set_therapist, only: [:show, :edit, :upate]
+  before_action :set_therapist, only: [:show, :edit, :update]
 
   def index
     if params["/therapists"].present?
@@ -57,7 +57,7 @@ class TherapistsController < ApplicationController
 
   def update
     @therapist.update(therapist_params)
-    redirect_to therapist_path(@therapist)
+    redirect_to therapists_path
   end
 
   private

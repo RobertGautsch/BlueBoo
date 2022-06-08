@@ -29,10 +29,11 @@
       <p><%= therapist.first_name %></p>
       <p>Places currently available?</p><%= therapist.available_places %>
       <%= therapist.address %>
-      <%= link_to "Edit", edit_therapist_path(therapist) %>
-      <%# <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#updateTherapist">
+      <%# <%= link_to "Edit", edit_therapist_path(therapist) %> %>
+      <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#updateModal">
         Edit
-      </button> %>
+      </button>
+      <%= render "edit_modal", therapist: therapist %>
   </div>
 <% end %>
 
@@ -63,25 +64,3 @@
     </div>
   </div>
 </div>
-
-<!-- Modal for Update therapist
-
-<div class="modal fade" id="updateTherapist" tabindex="-1" aria-labelledby="updateTherapistLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="updateTherapistLabel">Add a new therapist</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= render "form", therapist: @therapist_for_update %>
-        <%# <div class="modal-footer"> %>
-          <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
-          <%# <button type="button" class="btn btn-primary">Save changes</button> %>
-        <%# </div> %>
-      </div>
-    </div>
-  </div>
-</div>
-
--->
