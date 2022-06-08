@@ -65,22 +65,22 @@ end
 puts "10 activities created"
 
 question_data = [
-  ["Have you eaten in the last four hours?", 'food'],
-  ["Have you taken your medication?", 'medication'],
-  ["Have you slept more than 8 hours?", 'sleep'],
-  ["Have you had two liters of water or more today?", 'water'],
-  ["Are you in physical pain?", 'pain'],
-  ["Do you feel sweaty or dirty?", 'hygiene'],
-  ["Is your environment dirty or untidy?", 'tidyness'],
-  ["Have you been outside today?", 'outside'],
-  ["Are you comfortable alone/with the people around you?", 'people'],
-  ["Do you have something on your mind?", 'worries'],
-  ["Are you feeling anxious?", 'anxiety'],
-  ["Are you feeling depressed?", 'depressed'],
-  ["Are you feeling dizzy?", 'dizzy'],
-  ["Are you low on energy?", 'energy'],
-  ["Do you feel calm?", 'calm'],
-  ["Do you feel empty?", 'empty']
+  ["Have you eaten in the last four hours?", "nutrition"],
+  ["Have you taken your medication?", "medication"],
+  ["Have you slept more than 8 hours?", "rest"],
+  ["Have you had two liters of water or more today?", "hydration"],
+  ["Are you in physical pain?", "physical health"],
+  ["Do you feel sweaty or dirty?", "hygiene"],
+  ["Is your environment dirty or untidy?", "tidyness"],
+  ["Have you been outside today?", "outside"],
+  ["Are you comfortable alone/with the people around you?", "social"],
+  ["Do you have something on your mind?", "worries"],
+  ["Are you feeling anxious?", "anxiety"],
+  ["Are you feeling depressed?", "depression"],
+  ["Are you feeling dizzy?", "dizzyness"],
+  ["Are you low on energy?", "energy level"],
+  ["Do you feel calm?", "calmness"],
+  ["Do you feel empty?", "emptyness"]
 ]
 
 answer_options = [
@@ -101,14 +101,32 @@ answer_options = [
   ["No, not at all", "Not really", "Yes, I am very calm"],
   ["Yes", "I am not sure", "No, I am feeling feelings"]
 ]
+
+icon_urls = [
+  "icon-food.png",
+  "icon-meds.png",
+  "icon-sleep.png",
+  "icon-water.png",
+  "icon-pain.png",
+  "icon-hygiene.png",
+  "icon-tydiness.png",
+  "icon-outside.png",
+  "icon-people.png",
+  "icon-worry.png",
+  "icon-anxiety.png",
+  "icon-depression.png",
+  "icon-dizzy.png",
+  "icon-energy.png",
+  "icon-calm.png",
+  "icon-empty.png"
+]
+
 counter = 0
 question_data.each do |question|
   Question.create!(
     content: question[0],
     category: question[1],
-    # option1: "option 1",
-    # option2: "option 2",
-    # option3: "option 3"
+    icon_path: icon_urls[counter],
     option1: answer_options[counter][0],
     option2: answer_options[counter][1],
     option3: answer_options[counter][2]

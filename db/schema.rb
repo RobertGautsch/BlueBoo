@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_07_094429) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_08_082438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_094429) do
     t.string "option1"
     t.string "option2"
     t.string "option3"
+    t.string "icon_path"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -103,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_094429) do
     t.datetime "updated_at", null: false
     t.bigint "question_id"
     t.string "answer_type"
+    t.string "icon_url"
     t.index ["question_id"], name: "index_suggestions_on_question_id"
   end
 
