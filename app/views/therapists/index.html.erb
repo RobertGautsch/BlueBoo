@@ -1,4 +1,10 @@
-<h2>Find therapists</h1>
+<h2>Find therapists</h2>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add a new therapist
+</button>
+
 
   <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
     <%= f.input :query,
@@ -8,6 +14,7 @@
     <%= f.input :availability, as: :boolean, :label => "has available places" %>
     <%= submit_tag "Search"%>
   <% end %>
+
 
 <% unless @therapists == [] %>
   <div style="width: 90%; height: 400px;"
@@ -31,25 +38,43 @@
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tmsiddoc.json"  background="transparent"  speed="1"  style="width: 50%; height: 50%;"  loop  autoplay></lottie-player>
   <p>Have you called any therapists recently and want to share the information?</p>
-  <%= link_to "Add a therapist", new_therapist_path %>
+  <%= link_to "Add a therapist", new_therapist_path, class: "button-main" %>
 <% end %>
 
-<%# potentential search form dropdown for therapy types: %>
-
-<%# <%= form_for :therapy_type, method: :get do |f| %>
-    <%# params[:query], %>
-    <%# TherapyType.order(:name), %>
-    <%# :id, :name, include_blank: true %>
-<%# <% end
-
-<%# <% form_tag therapists_path, method: :get do %>
-  <%# <select name="therapist_type" id=""> %>
-    <%# <option value="None">Type of therapy</option> %>
-    <%# <option value="Behavioral">Behavioral</option> %>
-    <%# <option value="Cognitive-behavioral">Cognitive behavioral</option> %>
-    <%# <option value="Psychoanalysis">Psychoanalysis</option> %>
-    <%# <option value="Psychodynamic">Psychodynamic</option> %>
-    <%# <option value="Humanistic">Humanistic</option> %>
-    <%# <option value="Integrative">Integrative</option> %>
-  <%# </select> %>
-<%# <% end %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a new therapist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-new-therapist-form">
+          <div class="new-therapist-form">
+            <%= simple_form_for(@therapist) do |f| %>
+              <div class="new-therapist-form-section">
+                <%= f.input :first_name %>
+                <%= f.input :last_name %>
+              </div>
+              <%= f.input :available_places %>
+              <%= f.input :waiting_time, label: "Waiting time in months" %> <%# we could add a toggle on available_places click here%>
+              <%= f.input :therapy_type, :collection => %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative] %>
+              <div class="new-therapist-form-section">
+                <%= f.input :individual_therapy %>
+                <%= f.input :group_therapy %>
+              </div>
+              <%= f.input :address %>
+              <%= f.input :telephone_number %>
+              <%= f.submit "Create therapist", class: "button button-main" %>
+            <% end %>
+          </div>
+        </div>
+        <%# <div class="modal-footer"> %>
+          <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+          <%# <button type="button" class="btn btn-primary">Save changes</button> %>
+        <%# </div> %>
+      </div>
+    </div>
+  </div>
+</div>
