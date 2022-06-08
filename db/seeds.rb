@@ -71,7 +71,7 @@ question_data = [
   ["Have you had two liters of water or more today?", "hydration"],
   ["Are you in physical pain?", "health"],
   ["Do you feel sweaty or dirty?", "hygiene"],
-  ["Is your environment dirty or untidy?", "tidyness"],
+  ["Is your environment dirty or untidy?", "tidiness"],
   ["Have you been outside today?", "outside"],
   ["Are you comfortable alone/with the people around you?", "social"],
   ["Do you have something on your mind?", "worries"],
