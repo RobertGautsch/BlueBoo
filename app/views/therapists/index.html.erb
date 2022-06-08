@@ -15,7 +15,6 @@
     <% end %>
   </div>
 
-
   <% unless @therapists == [] %>
     <div class="container-map"
       data-controller="map"
@@ -24,15 +23,9 @@
     </div>
   <% end %>
 
-  <div>
-    <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add new therapist
-    </button>
-  </div>
-
   <% @therapists.each do |therapist| %>
     <div class="container-card-therapist">
-        <h2><%= therapist.first_name %></h2>
+        <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
         <h3><%= therapist.address %></h3>
 
         <div class="container-availability">
@@ -41,8 +34,15 @@
           <% else %>
             <p>❌ No availability</p>
           <% end %>
+
+          <% if therapist.waiting_time > 1 %>
+            <p><%= "#{therapist.waiting_time} months wait" %></p>
+          <% else %>
+            <p><%= "#{therapist.waiting_time} month wait" %></p>
+          <% end %>
         </div>
-        <h3><%=  %></h3>
+
+        <p><%= therapist.therapy_type %></p>
         <%= link_to "Update", edit_therapist_path(therapist) %>
     </div>
   <% end %>
