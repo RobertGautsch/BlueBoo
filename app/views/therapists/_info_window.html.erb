@@ -1,0 +1,13 @@
+<div class="map-info-window">
+  <div class="map-info-window-name-and-phone">
+    <h2><%= therapist.name %></h2>
+    <p><%= therapist.telephone_number %></p>
+  </div>
+  <div>
+    <% if therapist.available_places %>
+      <p>has available places</p> <%# add icon/emoji %>
+    <% else %>
+      <p>no available places</p>
+    <% end %>
+  </div>
+</div>
