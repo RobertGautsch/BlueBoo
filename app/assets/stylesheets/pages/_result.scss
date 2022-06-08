@@ -39,6 +39,7 @@
   width: 150px;
   position: relative;
   transition: box-shadow 0.4s;
+  cursor: pointer;
 }
 
 .card-results-item:hover {
@@ -65,13 +66,13 @@
   color: #0d3c6774;
 }
 
-// .card-link {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-// }
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 
 .results-icon {
   width: 100px;
