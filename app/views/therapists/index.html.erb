@@ -1,39 +1,66 @@
-<%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
-  <%= f.input :query,
-    class: "form-control",
-    placeholder: "Search for city"
-  %>
-  <%= f.input :availability, as: :check_boxes %>
-  <%= submit_tag "Search"%>
+<h2>Find therapists</h2>
+
+<!-- Button trigger modal -->
+<button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add a new therapist
+</button>
+
+
+  <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+    <%= f.input :query,
+      class: "form-control",
+      placeholder: "Search for city",
+      label: false %>
+    <%= f.input :availability, as: :boolean, :label => "has available places" %>
+    <%= submit_tag "Search"%>
+  <% end %>
+
+
+<% unless @therapists == [] %>
+  <div style="width: 90%; height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 <% end %>
-
-<%# <%= form_for :therapy_type, method: :get do |f| %>
-    <%# params[:query], %>
-    <%# TherapyType.order(:name), %>
-    <%# :id, :name, include_blank: true %>
-<%# <% end
-
-<%# <% form_tag therapists_path, method: :get do %>
-  <%# <select name="therapist_type" id=""> %>
-    <%# <option value="None">Type of therapy</option> %>
-    <%# <option value="Behavioral">Behavioral</option> %>
-    <%# <option value="Cognitive-behavioral">Cognitive behavioral</option> %>
-    <%# <option value="Psychoanalysis">Psychoanalysis</option> %>
-    <%# <option value="Psychodynamic">Psychodynamic</option> %>
-    <%# <option value="Humanistic">Humanistic</option> %>
-    <%# <option value="Integrative">Integrative</option> %>
-  <%# </select> %>
-<%# <% end %>
-
-<div style="width: 90%; height: 400px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <% @therapists.each do |therapist| %>
-<div>
-    <p><%= therapist.first_name %></p>
-    <p>Places currently available?</p><%= therapist.available_places %>
-    <%= therapist.address %>
-</div>
+  <div>
+      <p><%= therapist.first_name %></p>
+      <p>Places currently available?</p><%= therapist.available_places %>
+      <%= therapist.address %>
+      <%# <%= link_to "Edit", edit_therapist_path(therapist) %> %>
+      <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#updateModal">
+        Edit
+      </button>
+      <%= render "edit_modal", therapist: therapist %>
+  </div>
 <% end %>
+
+<% if @therapists == [] %>
+  <br>
+  <h2>No therapists found</h2>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tmsiddoc.json"  background="transparent"  speed="1"  style="width: 50%; height: 50%;"  loop  autoplay></lottie-player>
+  <p>Have you called any therapists recently and want to share the information?</p>
+  <%= link_to "Add a therapist", new_therapist_path, class: "button-main" %>
+<% end %>
+
+<!-- Modal for New therapist -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a new therapist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "form", therapist: @therapist_for_new %>
+        <%# <div class="modal-footer"> %>
+          <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+          <%# <button type="button" class="btn btn-primary">Save changes</button> %>
+        <%# </div> %>
+      </div>
+    </div>
+  </div>
+</div>

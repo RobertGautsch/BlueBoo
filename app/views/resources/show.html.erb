@@ -1,0 +1,17 @@
+<main class="container-article">
+  <div class="container-img">
+    <%= image_tag @resource.image_url, class:"resource-img" %>
+  </div>
+  <article class="article">
+    <header>
+      <h1 class="resource"><%= @resource.title %></h1>
+      <div class="container-span">
+        <span><%= @resource.created_at.strftime("%m %B %Y") %></span>
+        <span class="topic"><%= @resource.topic %></span>
+      </div>
+    </header>
+    <section>
+      <p><%= @resource.text %></p>
+    </section>
+  </article>
+</main>

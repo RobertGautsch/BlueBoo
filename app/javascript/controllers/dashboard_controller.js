@@ -12,7 +12,13 @@ export default class extends Controller {
     let start = 0
     const myInterval = setInterval(()=>{
       start += 1
+      if (this.endValue === 0) {
+        this.titleTarget.innerHTML = "No assessment has been conducted yet"
+        this.counterTarget.innerHTML = " "
+        clearInterval(myInterval)
+      }
       this.counterTarget.innerHTML = start
+      console.log(this.endValue)
       if (start === this.endValue) {
         this.counterTarget.innerHTML = start
         this.#fade();

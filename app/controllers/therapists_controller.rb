@@ -1,19 +1,17 @@
 class TherapistsController < ApplicationController
-  before_action :set_therapist, only: [:show, :edit, :upate]
+  before_action :set_therapist, only: [:show, :edit, :update]
 
   def index
     if params["/therapists"].present?
-      # @therapists = Therapist.where("address ILIKE ?", "%#{params[:query]}%")
-      # @therapists = Therapist.search_by_address(:query)
       @therapists = []
-      if params["/therapists"][:query] != "" && params["/therapists"][:availability].count == 2
-        availability = params["/therapists"][:availability].last
-        @therapists = Therapist.where("address ILIKE ? AND available_places = ?", "%#{params["/therapists"][:query]}%", availability)
-      elsif params["/therapists"][:query].present?
-        @address_therapists = Therapist.where("address ILIKE ?", "%#{params["/therapists"][:query]}%")
+      if params["/therapists"][:query] != "" && params["/therapists"][:availability] == "1"
+        availability = true
+        @therapists = Therapist.where("address ILIKE ? AND available_places = ?", "%#{params['/therapists'][:query]}%", availability)
+      elsif params["/therapists"][:query] != ""
+        @address_therapists = Therapist.where("address ILIKE ?", "%#{params['/therapists'][:query]}%")
         @therapists += @address_therapists
-      elsif params["/therapists"][:availability].count == 2
-        availability = params["/therapists"][:availability].last
+      elsif params["/therapists"][:availability] == "1"
+        availability = true
         @available_therapists = Therapist.where(available_places: availability)
         @therapists += @available_therapists
       end
@@ -34,6 +32,8 @@ class TherapistsController < ApplicationController
       end
     end
 
+    @therapist_for_new = Therapist.new
+    # @therapist_for_update = Therapist.find(params[:id])
   end
 
   def show
@@ -46,7 +46,7 @@ class TherapistsController < ApplicationController
   def create
     @therapist = Therapist.new(therapist_params)
     if @therapist.save
-      redirect_to therapist_path(@therapist)
+      redirect_to therapists_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -57,7 +57,7 @@ class TherapistsController < ApplicationController
 
   def update
     @therapist.update(therapist_params)
-    redirect_to therapist_path(@therapist)
+    redirect_to therapists_path
   end
 
   private
