@@ -45,7 +45,7 @@
           <% end %>
         </div>
 
-        <p><%= therapist.therapy_type %></p>
+        <span><%= therapist.therapy_type %></span>
         <p><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></p>
         <%= link_to "Update", edit_therapist_path(therapist) %>
     </div>

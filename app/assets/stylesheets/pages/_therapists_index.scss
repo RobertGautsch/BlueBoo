@@ -57,11 +57,16 @@
   margin-bottom: 24px;
   transition: box-shadow 0.4s;
   padding: 8px 16px;
+  font-family: 'Capriola', sans-serif;
 }
 
-.container-card-therapist a, h3, p {
+.container-card-therapist a, .container-card-therapist h3, .container-card-therapist p {
   font-family: 'Capriola', sans-serif;
   font-size: 16px;
+}
+
+.container-card-therapist h2 {
+  font-size: 24px;
 }
 
 .container-availability {
