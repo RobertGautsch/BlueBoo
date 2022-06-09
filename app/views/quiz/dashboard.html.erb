@@ -4,34 +4,26 @@
   <% neutral_counter = 0 %>
   <% bad_counter = 0 %>
 
-  <div class="above-section">
-    <div data-controller="dashboard" data-dashboard-end-value="<%= @bads.count%>" data-dashboard-title-value="areas<br>need attention">
-
+  <div data-controller="dashboard" data-dashboard-end-value="<%= @bads.count%>" data-dashboard-title-value="areas need attention">
     <h2><i class="far fa-tired"></i></h2>
-      <h2 data-dashboard-target="counter" id="result-counter">0</h2>
-      <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
-    </div>
-
-    <div data-controller="dashboard" data-dashboard-end-value="<%= @neutrals.count%>" data-dashboard-title-value="areas could<br>use more help">
-
-    <h2><i class="far fa-grin"></i></h2>
-      <h2 data-dashboard-target="counter" id="result-counter">0</h2>
-      <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
-    </div>
+    <h2 data-dashboard-target="counter" id="result-counter">0</h2>
+    <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
   </div>
 
-  <div class="lower-section">
-    <div data-controller="dashboard" data-dashboard-end-value="<%= @goods.count%>" data-dashboard-title-value="areas<br>seem fine">
+  <div data-controller="dashboard" data-dashboard-end-value="<%= @neutrals.count%>" data-dashboard-title-value="areas could use more help">
+    <h2><i class="far fa-grin"></i></h2>
+    <h2 data-dashboard-target="counter" id="result-counter">0</h2>
+    <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
+  </div>
 
-    <h2><i class="far fa-grin-beam"></i></h2>
+    <div data-controller="dashboard" data-dashboard-end-value="<%= @goods.count%>" data-dashboard-title-value="areas seem fine">
+      <h2><i class="far fa-grin-beam"></i></h2>
       <h2 data-dashboard-target="counter" id="result-counter">0</h2>
       <h3 data-dashboard-target="title" style="visibility: hidden"> d</h3>
     </div>
 
-  </div>
-
 
   <%= link_to(result_path) do %>
-    <button class="button button-main">Detailed Results</button>
+    <button class="button button-tertiary">See Detailed Results</button>
   <% end %>
 </main>
