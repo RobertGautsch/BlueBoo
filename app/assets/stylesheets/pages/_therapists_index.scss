@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  font-family: 'Lato', sans-serif;
 }
 
 #_therapists_query {
@@ -31,6 +32,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.container-filter p, .form-check {
+  font-size: 14px;
+  color: #0d3c67a2;
+  font-weight: bold;
 }
 
 .container-map {
