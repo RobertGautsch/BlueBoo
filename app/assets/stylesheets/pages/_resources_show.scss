@@ -4,13 +4,9 @@
   padding-bottom: 10vh;
 }
 
-.container-img {
-  width: 100vw;
-}
-
 .container-img img {
   height: 300px;
-  object-fit: scale-down;
+  object-fit: cover;
 }
 
 .resource-img {
