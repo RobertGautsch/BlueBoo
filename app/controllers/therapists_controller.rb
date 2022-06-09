@@ -4,7 +4,9 @@ class TherapistsController < ApplicationController
   def index
     if params["/therapists"].present?
       @therapists = []
-      if params["/therapists"][:query] != "" && params["/therapists"][:availability] == "1"
+      if params["/therapists"][:query] == "" && params["/therapists"][:availability] == "0"
+        @therapists = Therapist.all
+      elsif params["/therapists"][:query] != "" && params["/therapists"][:availability] == "1"
         availability = true
         @therapists = Therapist.where("address ILIKE ? AND available_places = ?", "%#{params['/therapists'][:query]}%", availability)
       elsif params["/therapists"][:query] != ""
@@ -15,6 +17,7 @@ class TherapistsController < ApplicationController
         @available_therapists = Therapist.where(available_places: availability)
         @therapists += @available_therapists
       end
+
       @markers = @therapists.map do |therapist|
         {
           lat: therapist.latitude,
