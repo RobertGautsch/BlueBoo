@@ -1,4 +1,5 @@
 <div class="container-new-therapist-form">
+  <%= link_to "← Back", therapists_path %>
   <div class="new-therapist-form">
     <%= simple_form_for(Therapist.new) do |f| %>
       <div class="new-therapist-form-section">
@@ -14,7 +15,7 @@
       </div>
       <%= f.input :address %>
       <%= f.input :telephone_number %>
-      <%= f.submit "Create therapist", class: "button button-main", id: "button-add-therapist" %>
+      <%= f.submit "Create therapist", class: "button form-button", id: "button-add-therapist" %>
     <% end %>
   </div>
 </div>
