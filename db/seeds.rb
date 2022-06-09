@@ -219,10 +219,10 @@ end
 puts "one suggestion for each answer created"
 
 titles = [
-  "How to find a therapist",
-  "Choosing the right therapist for you",
-  "Types of therapy and their advantages",
   "When to seek out professional help?",
+  "Choosing the right therapist for you",
+  "How to find a therapist",
+  "Types of therapy and their advantages",
   "How to find private therapists",
   "On the importance of mental health",
   "Supporting a person that is struggling with their mental health",
@@ -232,12 +232,12 @@ titles = [
 ]
 
 images = [
+  "resource6.jpg",
+  "resource5.jpg",
   "resource1.jpg",
   "resource2.jpg",
   "resource3.jpg",
   "resource4.jpg",
-  "resource5.jpg",
-  "resource6.jpg",
   "resource2.jpg",
   "resource3.jpg",
   "resource1.jpg",
@@ -268,38 +268,82 @@ end
 
 puts "10 resources created"
 
-3.times do
+therapy_types = %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative]
+
+addresses_for_therapists = [
+  # add 20 berlin addresses here
+  # add 10 hamburg addresses here
+  # add 20 random addresses here
+]
+
+# berlin seeds
+20.times do
+  counter = 0
   Therapist.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: "Schönhauser Allee 61, 10437 Berlin",
+    address: addresses_for_therapists[counter]
     individual_therapy: [true, false].sample,
     group_therapy: [true, false].sample,
     available_places: [true, false].sample,
-    waiting_time: "3 months",
-    telephone_number: "+49799 148368",
-    therapy_type: %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative].sample
+    waiting_time: (1..9).to_a.sample
+    telephone_number: "+4930 #{(1102928..9898397).sample}",
+    therapy_type: therapy_types.sample
   )
+  counter += 1
 end
-puts "3 therapists created"
 
+# hamburg seeds
+10.times do
+  counter = 20
+  Therapist.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    address: addresses_for_therapists[counter]
+    individual_therapy: [true, false].sample,
+    group_therapy: [true, false].sample,
+    available_places: false,
+    waiting_time: (1..9).to_a.sample
+    telephone_number: "+49799 #{(10298..99837).sample}",
+    therapy_type: therapy_types.sample
+  )
+  counter += 1
+end
+
+# random city seeds
+20.times do
+  counter = 30
+  Therapist.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    address: addresses_for_therapists[counter]
+    individual_therapy: [true, false].sample,
+    group_therapy: [true, false].sample,
+    available_places: false,
+    waiting_time: (1..9).to_a.sample
+    telephone_number: "+49799 #{(10298..99837).sample}",
+    therapy_type: therapy_types.sample
+  )
+  counter += 1
+end
+
+puts "50 therapists created"
 
 # can be deleted at a later point in time
-therapy_types = %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative]
 
-therapy_types.each do |therapy_type|
-  TherapyType.create!(name: therapy_type)
-end
-puts "6 therapy types created"
+# therapy_types.each do |therapy_type|
+#   TherapyType.create!(name: therapy_type)
+# end
+# puts "6 therapy types created"
 
-therapist = Therapist.first
-therapy_type = TherapyType.where(name: "Behavioral").first
-TherapistTherapyType.create!(therapist: therapist, therapy_type: therapy_type)
+# therapist = Therapist.first
+# therapy_type = TherapyType.where(name: "Behavioral").first
+# TherapistTherapyType.create!(therapist: therapist, therapy_type: therapy_type)
 
-therapist2 = Therapist.last
-therapy_type2 = TherapyType.where(name: "Psychoanalysis").first
-TherapistTherapyType.create!(therapist: therapist2, therapy_type: therapy_type2)
+# therapist2 = Therapist.last
+# therapy_type2 = TherapyType.where(name: "Psychoanalysis").first
+# TherapistTherapyType.create!(therapist: therapist2, therapy_type: therapy_type2)
 
-puts "linked 2 therapists to therapy type"
+# puts "linked 2 therapists to therapy type"
 
 puts "seeding done"
