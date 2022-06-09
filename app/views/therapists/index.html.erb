@@ -27,31 +27,29 @@
 
   <% @therapists.each do |therapist| %>
     <div class="container-card-therapist">
-        <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
-        <span><%= therapist.therapy_type %></span>
-        <h3><%= therapist.address %></h3>
-        <%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %>
-        <div class="container-availability">
-          <% if therapist.available_places == true %>
-            <p>✅ Has open spots</p>
+      <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
+      <span><%= therapist.therapy_type %></span>
+      <h3><%= therapist.address %></h3>
+      <%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %>
+      <div class="container-availability">
+        <% if therapist.available_places == true %>
+          <p>✅ Has open spots</p>
+        <% else %>
+          <p>❌ No availability</p>
+        <% end %>
+        <% if therapist.available_places == true %>
+          <% if therapist.waiting_time > 1 %>
+            <p><%= "#{therapist.waiting_time} months wait" %></p>
           <% else %>
-            <p>❌ No availability</p>
+            <p><%= "#{therapist.waiting_time} month wait" %></p>
           <% end %>
-          <% if therapist.available_places == true %>
-            <% if therapist.waiting_time > 1 %>
-              <p><%= "#{therapist.waiting_time} months wait" %></p>
-            <% else %>
-              <p><%= "#{therapist.waiting_time} month wait" %></p>
-            <% end %>
-          <% end %>
-        </div>
-
+        <% end %>
+      </div>
         <p><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></p>
 
         <%= link_to edit_therapist_path(therapist) do %>
           <button class="form-button">Update</button>
         <% end %>
-
     </div>
   <% end %>
 
