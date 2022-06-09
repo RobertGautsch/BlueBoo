@@ -3,18 +3,20 @@
     <h1>Find therapists nearby</h1>
   </div>
 
-  <div class="container-search">
-    <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+  <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+    <div class="container-search">
       <%= f.input :query,
         class: "form-control",
         placeholder: "Search for city",
         label: false %>
-        <p>Filter by:</p>
+        <%= f.submit "Search", class: "form-button" %>
+    </div>
+    <div class="container-filter">
+      <p>Filter by:</p>
       <%= f.input :availability, as: :boolean, :label => "Taking new patients" %>
-      <%= submit_tag "Search"%>
-    <% end %>
-  </div>
-  <br>
+    </div>
+  <% end %>
+
   <% unless @therapists == [] %>
     <div class="container-map"
       data-controller="map"
@@ -22,16 +24,12 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   <% end %>
-  <br>
-<!-- Button trigger modal -->
-<button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Add a new therapist
-</button>
 
   <% @therapists.each do |therapist| %>
     <div class="container-card-therapist">
         <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
         <h3><%= therapist.address %></h3>
+        <%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %>
         <div class="container-availability">
           <% if therapist.available_places == true %>
             <p>✅ Has open spots</p>
@@ -47,16 +45,22 @@
         </div>
 
         <p><%= therapist.therapy_type %></p>
+        <p><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></p>
         <%= link_to "Update", edit_therapist_path(therapist) %>
     </div>
   <% end %>
 
   <% if @therapists == [] %>
-    <h2>No therapists found. </h2>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tmsiddoc.json"  background="transparent"  speed="1"  style="width: 50%; height: 50%;"  loop  autoplay></lottie-player>
-    <h3>Be the first one to add a therapist in your city.</h3>
-    <%= link_to "Add a therapist", new_therapist_path, class: "button-main" %>
+    <div class="container-no-therapists">
+      <h2>No therapists found. </h2>
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tmsiddoc.json"  background="transparent"  speed="1"  style="width: 50%; height: 50%;"  loop  autoplay></lottie-player>
+      <h3>Be the first one to add a therapist in your city.</h3>
+      <!-- Button trigger modal -->
+      <button type="button" class="button button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add a new therapist
+      </button>
+    </div>
   <% end %>
 
 <!-- Modal for New therapist -->
@@ -69,10 +73,6 @@
       </div>
       <div class="modal-body">
         <%= render "form", therapist: @therapist_for_new %>
-        <%# <div class="modal-footer"> %>
-          <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
-          <%# <button type="button" class="btn btn-primary">Save changes</button> %>
-        <%# </div> %>
       </div>
     </div>
   </div>
