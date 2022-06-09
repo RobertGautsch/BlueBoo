@@ -29,18 +29,16 @@
 
 .card-results-item {
   background-color: #FFFFFF;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.019) 0px 2px 4px -1px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid #0d3c671f;
   border-radius: 4px;
   width: 150px;
   position: relative;
   transition: box-shadow 0.4s;
   cursor: pointer;
-  box-shadow: 3px 3px 3px #FF7C44;
+  box-shadow: 4px 4px #FF7C44;
 }
 
 .card-results-item a {
