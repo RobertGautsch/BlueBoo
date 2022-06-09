@@ -1,5 +1,16 @@
 .dashboard-container {
-  padding-left: 5vw;
-  padding-right: 5vw;
-  padding-bottom: 10vw;
+  padding: 16px 24px;
+}
+
+#result-counter {
+  color: #FF8F51;
+ }
+ .lower-section {
+  display: flex;
+  justify-content: space-evenly;
+ }
+
+ .above-section {
+  display: flex;
+  justify-content: space-evenly;
 }
