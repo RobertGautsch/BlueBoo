@@ -231,16 +231,39 @@ titles = [
   "Normalizing mental health"
 ]
 
+images = [
+  "resource1.jpg",
+  "resource2.jpg",
+  "resource3.jpg",
+  "resource4.jpg",
+  "resource5.jpg",
+  "resource6.jpg",
+  "resource2.jpg",
+  "resource3.jpg",
+  "resource1.jpg",
+  "resource5.jpg"
+]
+
+resource_text = "If you’re considering therapy — whether it’s to restore a relationship, recover from a trauma, adjust to a new life phase, or improve your mental health — finding the right therapist is the first hurdle to cross.
+
+Researchers have found that the bond between you and your therapist is likely to have a big impact on your growth. That’s why it’s important to do your research, ask questions, and pay attention to your own responses in your search for the therapist that’s right for you. Here are some tried-and-true methods for finding a therapist to help you reach your therapeutic goals.
+
+If you plan to pay for therapy through your insurance plan, your first step might be to look through your plan’s provider network.
+
+It’s also a good idea to find out whether your plan limits the number of sessions you can attend each year and whether using an out-of-network therapist will affect your out-of-pocket costs."
+
 topics = %w[therapy mental\ health therapist]
+image_counter = 0
 
 titles.each do |title|
   Resource.create!(
     title: title,
-    text: Faker::Lorem.paragraph(sentence_count: 10, supplemental: false, random_sentences_to_add: 10),
+    text: resource_text,
     topic: topics.sample,
     reading_duration: (rand(1..4) * 5),
-    image_url: "placeholder.jpg"
+    image_url: images[image_counter]
   )
+  image_counter += 1
 end
 
 puts "10 resources created"

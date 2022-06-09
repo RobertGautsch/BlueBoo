@@ -1,0 +1,29 @@
+.map-info-window {
+  min-width: 220px;
+}
+
+.mapboxgl-popup-content {
+  box-shadow: 4px 3px 7px rgba(0, 0, 0, 0.1);
+}
+
+.map-info-window-content {
+  text-align: start;
+  padding: 10px;
+}
+
+.map-info-window-name {
+  font-size: 22px;
+}
+
+.map-info-window-phone {
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+.map-info-window-availability p {
+  font-size: 14px;
+  color: #969696;
+  text-transform: uppercase;
+  font-family: 'Capriola', sans-serif;
+  margin-bottom: 0;
+}

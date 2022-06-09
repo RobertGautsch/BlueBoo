@@ -40,11 +40,7 @@
   position: relative;
   transition: box-shadow 0.4s;
   cursor: pointer;
-}
-
-.card-results-item:hover {
-  box-shadow: 4px 4px 0 #FF7C44;
-
+  box-shadow: 3px 3px 3px #FF7C44;
 }
 
 .card-results-item a {
