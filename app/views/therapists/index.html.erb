@@ -23,33 +23,33 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <h2> <%= "Therapists near you:" %> </h2>
   <% end %>
 
   <% @therapists.each do |therapist| %>
     <div class="container-card-therapist">
-      <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
+      <h3><%= "#{therapist.first_name} #{therapist.last_name}" %></h3>
       <span><%= therapist.therapy_type %></span>
-      <h3><%= therapist.address %></h3>
-      <%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %>
+      <h4><%= therapist.address %></h4>
+      <h4><%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %></h4>
       <div class="container-availability">
         <% if therapist.available_places == true %>
-          <p>✅ Has open spots</p>
+          <h5>✅ Has open spots</h5>
         <% else %>
-          <p>❌ No availability</p>
+          <h5>❌ No availability</h5>
         <% end %>
         <% if therapist.available_places == true %>
           <% if therapist.waiting_time > 1 %>
-            <p><%= "#{therapist.waiting_time} months wait" %></p>
+            <h5><%= "#{therapist.waiting_time} months wait" %></h5>
           <% else %>
-            <p><%= "#{therapist.waiting_time} month wait" %></p>
+            <h5><%= "#{therapist.waiting_time} month wait" %></h5>
           <% end %>
         <% end %>
       </div>
-        <p><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></p>
-
-        <%= link_to edit_therapist_path(therapist) do %>
-          <button class="form-button">Update</button>
-        <% end %>
+      <%= link_to edit_therapist_path(therapist) do %>
+        <button class="form-button">Update</button>
+      <% end %>
+      <h6 id="last-updated"><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></h6>
     </div>
   <% end %>
 
