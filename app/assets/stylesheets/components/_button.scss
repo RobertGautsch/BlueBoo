@@ -55,8 +55,7 @@
   color: #F5F0ED;
 }
 
-
-// Modal button
+// Modal buttons
 #button-proceed {
   background-color: #FF7C44;
   color: #0D3B67;
@@ -65,7 +64,12 @@
   font-size: 16px;
 }
 
-// Small button for logins etc
+ #button-add-therapist {
+  width: 302px;
+ }
+
+
+// Login button
 .button-small {
   font-family: 'Capriola', sans-serif;
   font-size: 20px;
@@ -75,14 +79,13 @@
   height: 45px;
   padding: 10px 24px 10px 24px;
   transition: box-shadow 0.4s;
-}
-
-.button-small {
   color: #F5F0ED;
   background-color: #FF7C44;
   margin-bottom: 20px;
 }
+
 // Back button
+
 
 // Form button
 .form-button {
