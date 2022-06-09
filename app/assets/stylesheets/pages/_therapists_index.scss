@@ -41,6 +41,7 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: #FFFFFF;
+  border: 2px solid #0d3c671f;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.019) 0px 2px 4px -1px;
   margin-bottom: 24px;
@@ -48,10 +49,9 @@
   padding: 8px 16px;
 }
 
-.container-card-therapist h3 {
+.container-card-therapist a, h3, p {
   font-family: 'Capriola', sans-serif;
   font-size: 16px;
-
 }
 
 .container-availability {
@@ -65,4 +65,10 @@
   color: #969696;
   text-transform: uppercase;
   font-family: 'Capriola', sans-serif;
+}
+
+.container-no-therapists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
