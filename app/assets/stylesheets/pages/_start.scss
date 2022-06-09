@@ -1,5 +1,7 @@
 .container-quiz-start {
   padding: 48px 24px;
+  padding-left: 5vw;
+  padding-right: 5vw;
   height: 100%;
 }
 
@@ -9,4 +11,10 @@
 
 .container-intro p {
   padding-top: 16px;
+}
+
+.container-start-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
