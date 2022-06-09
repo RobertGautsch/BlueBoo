@@ -1,50 +1,63 @@
-<h2>Find therapists</h2>
+<main class="container-therapist-page">
+  <div class="container-h1">
+    <h1>Find therapists nearby</h1>
+  </div>
 
+  <div class="container-search">
+    <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+      <%= f.input :query,
+        class: "form-control",
+        placeholder: "Search for city",
+        label: false %>
+        <p>Filter by:</p>
+      <%= f.input :availability, as: :boolean, :label => "Taking new patients" %>
+      <%= submit_tag "Search"%>
+    <% end %>
+  </div>
+  <br>
+  <% unless @therapists == [] %>
+    <div class="container-map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  <% end %>
+  <br>
 <!-- Button trigger modal -->
 <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add a new therapist
 </button>
 
+  <% @therapists.each do |therapist| %>
+    <div class="container-card-therapist">
+        <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
+        <h3><%= therapist.address %></h3>
+        <div class="container-availability">
+          <% if therapist.available_places == true %>
+            <p>✅ Has open spots</p>
+          <% else %>
+            <p>❌ No availability</p>
+          <% end %>
 
-  <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
-    <%= f.input :query,
-      class: "form-control",
-      placeholder: "Search for city",
-      label: false %>
-    <%= f.input :availability, as: :boolean, :label => "has available places" %>
-    <%= submit_tag "Search"%>
+          <% if therapist.waiting_time > 1 %>
+            <p><%= "#{therapist.waiting_time} months wait" %></p>
+          <% else %>
+            <p><%= "#{therapist.waiting_time} month wait" %></p>
+          <% end %>
+        </div>
+
+        <p><%= therapist.therapy_type %></p>
+        <%= link_to "Update", edit_therapist_path(therapist) %>
+    </div>
   <% end %>
 
-
-<% unless @therapists == [] %>
-  <div style="width: 90%; height: 400px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-<% end %>
-
-<% @therapists.each do |therapist| %>
-  <div>
-      <p><%= therapist.first_name %></p>
-      <p>Places currently available?</p><%= therapist.available_places %>
-      <%= therapist.address %>
-      <%# <%= link_to "Edit", edit_therapist_path(therapist) %> %>
-      <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#updateModal">
-        Edit
-      </button>
-      <%= render "edit_modal", therapist: therapist %>
-  </div>
-<% end %>
-
-<% if @therapists == [] %>
-  <br>
-  <h2>No therapists found</h2>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tmsiddoc.json"  background="transparent"  speed="1"  style="width: 50%; height: 50%;"  loop  autoplay></lottie-player>
-  <p>Have you called any therapists recently and want to share the information?</p>
-  <%= link_to "Add a therapist", new_therapist_path, class: "button-main" %>
-<% end %>
+  <% if @therapists == [] %>
+    <h2>No therapists found. </h2>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_tmsiddoc.json"  background="transparent"  speed="1"  style="width: 50%; height: 50%;"  loop  autoplay></lottie-player>
+    <h3>Be the first one to add a therapist in your city.</h3>
+    <%= link_to "Add a therapist", new_therapist_path, class: "button-main" %>
+  <% end %>
 
 <!-- Modal for New therapist -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -63,4 +76,4 @@
       </div>
     </div>
   </div>
-</div>
+</main>

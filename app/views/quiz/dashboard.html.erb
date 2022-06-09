@@ -1,26 +1,28 @@
-<h2>The results of your last needs assessment reveiled that:</h2>
-<% good_counter = 0 %>
-<% neutral_counter = 0 %>
-<% bad_counter = 0 %>
+<div class="dashboard-container">
+  <h2>The results of your last needs assessment revealed that:</h2>
+  <% good_counter = 0 %>
+  <% neutral_counter = 0 %>
+  <% bad_counter = 0 %>
 
-<div data-controller="dashboard" data-dashboard-end-value="<%= @bads.count%>" data-dashboard-title-value="areas need attention">
-<h2><i class="far fa-tired"></i></h2>
-  <h2 data-dashboard-target="counter" id="result-counter">0</h2>
-  <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
+  <div data-controller="dashboard" data-dashboard-end-value="<%= @bads.count%>" data-dashboard-title-value="areas need attention">
+  <h2><i class="far fa-tired"></i></h2>
+    <h2 data-dashboard-target="counter" id="result-counter">0</h2>
+    <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
+  </div>
+
+  <div data-controller="dashboard" data-dashboard-end-value="<%= @neutrals.count%>" data-dashboard-title-value="areas could use more help">
+  <h2><i class="far fa-grin"></i></h2>
+    <h2 data-dashboard-target="counter" id="result-counter">0</h2>
+    <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
+  </div>
+
+  <div data-controller="dashboard" data-dashboard-end-value="<%= @goods.count%>" data-dashboard-title-value="areas seem fine">
+  <h2><i class="far fa-grin-beam"></i></h2>
+    <h2 data-dashboard-target="counter" id="result-counter">0</h2>
+    <h3 data-dashboard-target="title" style="visibility: hidden"> d</h3>
+  </div>
+
+  <%= link_to(result_path) do %>
+    <button class="button button-main">Detailed Results</button>
+  <% end %>
 </div>
-
-<div data-controller="dashboard" data-dashboard-end-value="<%= @neutrals.count%>" data-dashboard-title-value="areas could use more help">
-<h2><i class="far fa-grin"></i></h2>
-  <h2 data-dashboard-target="counter" id="result-counter">0</h2>
-  <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
-</div>
-
-<div data-controller="dashboard" data-dashboard-end-value="<%= @goods.count%>" data-dashboard-title-value="areas seem fine">
-<h2><i class="far fa-grin-beam"></i></h2>
-  <h2 data-dashboard-target="counter" id="result-counter">0</h2>
-  <h3 data-dashboard-target="title" style="visibility: hidden"> d</h3>
-</div>
-
-<%= link_to(result_path) do %>
-  <button class="button button-main">Detailed Results</button>
-<% end %>
