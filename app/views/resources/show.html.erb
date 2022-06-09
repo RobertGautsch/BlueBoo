@@ -4,6 +4,7 @@
   </div>
   <article class="article">
     <header>
+    <%= link_to "← All articles", resources_path, class: "link-results"%>
       <h1 class="resource"><%= @resource.title %></h1>
       <div class="container-span">
         <span><%= @resource.created_at.strftime("%m %B %Y") %></span>
