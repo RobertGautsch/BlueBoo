@@ -271,23 +271,64 @@ puts "10 resources created"
 therapy_types = %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative]
 
 addresses_for_therapists = [
-  # add 20 berlin addresses here
+  # add 15 berlin addresses here
+  "Brandenburgische Straße 8, 12279 Berlin",
+  "Kiefholzstraße 50, 12435 Berlin",
+  "Karl-Marx-Straße 98, 12043 Berlin",
+  "Tamara-Danz-Straße 11, 10243 Berlin",
+  "Thiemannstraße 11, 12059 Berlin",
+  "Wrangelstraße 53, 10997 Berlin",
+  "Europaplatz 1, 10557 Berlin",
+  "Am Ostbahnhof 9, 10243 Berlin",
+  "Hermannstraße 158, 12051 Berlin",
+  "Rollbergstraße 59, 12053 Berlin",
+  "Rummelsburger Str. 16, 12459 Berlin",
+  "Friedrichstraße 100, 10117 Berlin",
+  "Tempelhofer Weg 11, 12347 Berlin",
+  "Yorckstraße 78, 10965 Berlin",
+  "Uhlandstraße 30, 10719 Berlin",
   # add 10 hamburg addresses here
-  # add 20 random addresses here
+  "Tibarg 41, 22459 Hamburg",
+  "Moltkestraße 6, 20253 Hamburg",
+  "Glockengießerwall 5, 20095 Hamburg",
+  "Mönckebergstraße 4, 20095 Hamburg",
+  "Ballindamm 40, 20095 Hamburg",
+  "Dorotheenstraße 116, 22301 Hamburg",
+  "Krüsistraße 7, 22305 Hamburg",
+  "Langenhorner Chaussee 666, 22419 Hamburg",
+  "Altonaer Str. 67, 20357 Hamburg",
+  "Wandsbeker Marktstraße 1, 22041 Hamburg",
+  # add 16 random addresses here
+  "Thomas-Müntzer-Platz 5, 01307 Dresden",
+  "Äußere Oybiner Straße 1a, 02763 Zittau",
+  "Lichtentaler Str. 57, 76530 Baden-Baden  ",
+  "Mannheimer Straße 34 70376 Stuttgart",
+  "Rosenstrasse 53, 81630 München",
+  "Eisenbahnstraße 116, 04315 Leipzig",
+  "Maistraße 63, 80337 München",
+  "Leopoldstraße 180, 80804 München",
+  "Hirschgartenallee 38, 80639 München",
+  "Breite Str. 90, 50667 Köln",
+  "Hauptstraße 68, 70567 Stuttgart",
+  "Poststraße 33, 68309 Mannheim",
+  "Blumenstraße 9, 79111 Freiburg im Breisgau",
+  "Altendorfer Str. 2, 45127 Essen",
+  "Husarenstraße 3, 30163 Hannover",
+  "Breitenweg 1, 28195 Bremen"
 ]
 
 # berlin seeds
-20.times do
-  counter = 0
+counter = 0
+15.times do
   Therapist.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: addresses_for_therapists[counter]
+    address: addresses_for_therapists[counter],
     individual_therapy: [true, false].sample,
     group_therapy: [true, false].sample,
     available_places: [true, false].sample,
-    waiting_time: (1..9).to_a.sample
-    telephone_number: "+4930 #{(1102928..9898397).sample}",
+    waiting_time: (1..9).to_a.sample,
+    telephone_number: "+4930 #{(1102928..9898397).to_a.sample}",
     therapy_type: therapy_types.sample
   )
   counter += 1
@@ -295,39 +336,37 @@ end
 
 # hamburg seeds
 10.times do
-  counter = 20
   Therapist.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: addresses_for_therapists[counter]
+    address: addresses_for_therapists[counter],
     individual_therapy: [true, false].sample,
     group_therapy: [true, false].sample,
     available_places: false,
-    waiting_time: (1..9).to_a.sample
-    telephone_number: "+49799 #{(10298..99837).sample}",
+    waiting_time: (1..9).to_a.sample,
+    telephone_number: "+49799 #{(10298..99837).to_a.sample}",
     therapy_type: therapy_types.sample
   )
   counter += 1
 end
 
 # random city seeds
-20.times do
-  counter = 30
+16.times do
   Therapist.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: addresses_for_therapists[counter]
+    address: addresses_for_therapists[counter],
     individual_therapy: [true, false].sample,
     group_therapy: [true, false].sample,
-    available_places: false,
-    waiting_time: (1..9).to_a.sample
-    telephone_number: "+49799 #{(10298..99837).sample}",
+    available_places: [true, false].sample,
+    waiting_time: (1..9).to_a.sample,
+    telephone_number: "+49799 #{(10298..99837).to_a.sample}",
     therapy_type: therapy_types.sample
   )
   counter += 1
 end
 
-puts "50 therapists created"
+puts "46 therapists created"
 
 # can be deleted at a later point in time
 
