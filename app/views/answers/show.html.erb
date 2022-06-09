@@ -1,7 +1,7 @@
 <div class="suggestion-picture"></div>
-<%= link_to "← Results", result_path, class: "link-results"%>
 
 <div class="suggestion-container">
+<%= link_to "← Results", result_path, class: "link-results"%>
   <% @suggestions.each do |suggestion| %>
     <div class="suggestion-card">
       <h2><%= suggestion.title %></h2>
