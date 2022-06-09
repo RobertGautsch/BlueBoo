@@ -28,7 +28,8 @@ class TherapistsController < ApplicationController
       @markers = @therapists.geocoded.map do |therapist|
         {
           lat: therapist.latitude,
-          lng: therapist.longitude
+          lng: therapist.longitude,
+          info_window: render_to_string(partial: "info_window", locals: {therapist: therapist})
         }
       end
     end
