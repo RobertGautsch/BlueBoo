@@ -19,7 +19,7 @@
 @import "pages/resources_index";
 @import "pages/new_therapist";
 @import "pages/resources_show";
-
+@import "pages/therapists_index";
 
 
 
@@ -151,4 +151,8 @@ p {
 
  #result-counter {
   color: #FF8F51;
+ }
+
+ #button-add-therapist {
+  width: 302px;
  }
