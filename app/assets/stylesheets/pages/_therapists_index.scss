@@ -9,14 +9,19 @@
 .container-search {
   display: flex;
   align-items: center;
+  width: 100%;
+}
+
+#_therapists_query {
+  height: 40px;
+  width: 247px;
+  border: 2px solid #0D3B67;
+  border-right: none;
+  flex-grow: 6;
 }
 
 .form-button {
   align-self: flex-start;
-}
-
-.form-control input {
-  background-color: green;
 }
 
 .container-filter {

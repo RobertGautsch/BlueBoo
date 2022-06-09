@@ -8,13 +8,13 @@
       <%= f.input :query,
         class: "form-control",
         placeholder: "Search for city",
-        label: false, input_html: { class: ""} %>
+        label: false %>
         <%= f.submit "Search", class: "form-button" %>
     </div>
-  <div class="container-filter">
-    <p>Filter by:</p>
-    <%= f.input :availability, as: :boolean, :label => "Taking new patients" %>
-  </div>
+    <div class="container-filter">
+      <p>Filter by:</p>
+      <%= f.input :availability, as: :boolean, :label => "Taking new patients" %>
+    </div>
   <% end %>
 
   <% unless @therapists == [] %>
