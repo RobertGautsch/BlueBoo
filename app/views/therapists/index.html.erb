@@ -28,6 +28,7 @@
   <% @therapists.each do |therapist| %>
     <div class="container-card-therapist">
         <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
+        <span><%= therapist.therapy_type %></span>
         <h3><%= therapist.address %></h3>
         <%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %>
         <div class="container-availability">
@@ -45,7 +46,6 @@
           <% end %>
         </div>
 
-        <span><%= therapist.therapy_type %></span>
         <p><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></p>
         <%= link_to "Update", edit_therapist_path(therapist) %>
     </div>
