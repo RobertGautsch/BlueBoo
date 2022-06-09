@@ -254,12 +254,14 @@ puts "10 resources created"
     group_therapy: [true, false].sample,
     available_places: [true, false].sample,
     waiting_time: "3 months",
-    telephone_number: "+49799 148368"
+    telephone_number: "+49799 148368",
+    therapy_type: %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative].sample
   )
 end
 puts "3 therapists created"
 
 
+# can be deleted at a later point in time
 therapy_types = %w[Behavioral Cognitive-behavioral Psychoanalysis Psychodynamic Humanistic Integrative]
 
 therapy_types.each do |therapy_type|
