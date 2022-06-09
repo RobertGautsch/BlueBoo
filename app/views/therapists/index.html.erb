@@ -22,12 +22,16 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   <% end %>
+  
+<!-- Button trigger modal -->
+<button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add a new therapist
+</button>
 
   <% @therapists.each do |therapist| %>
     <div class="container-card-therapist">
         <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
         <h3><%= therapist.address %></h3>
-
         <div class="container-availability">
           <% if therapist.available_places == true %>
             <p>✅ Has open spots</p>
@@ -55,17 +59,20 @@
     <%= link_to "Add a therapist", new_therapist_path, class: "button-main" %>
   <% end %>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add a new therapist</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= render "form", therapist: @therapist %>
-        </div>
+<!-- Modal for New therapist -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a new therapist</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "form", therapist: @therapist_for_new %>
+        <%# <div class="modal-footer"> %>
+          <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+          <%# <button type="button" class="btn btn-primary">Save changes</button> %>
+        <%# </div> %>
       </div>
     </div>
   </div>

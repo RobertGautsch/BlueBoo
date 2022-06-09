@@ -1,8 +1,7 @@
 class TherapistsController < ApplicationController
-  before_action :set_therapist, only: [:show, :edit, :upate]
+  before_action :set_therapist, only: [:show, :edit, :update]
 
   def index
-    @therapist = Therapist.new
     if params["/therapists"].present?
       @therapists = []
       if params["/therapists"][:query] != "" && params["/therapists"][:availability] == "1"
@@ -32,6 +31,9 @@ class TherapistsController < ApplicationController
         }
       end
     end
+
+    @therapist_for_new = Therapist.new
+    # @therapist_for_update = Therapist.find(params[:id])
   end
 
   def show
@@ -55,7 +57,7 @@ class TherapistsController < ApplicationController
 
   def update
     @therapist.update(therapist_params)
-    redirect_to therapist_path(@therapist)
+    redirect_to therapists_path
   end
 
   private

@@ -1,3 +1,4 @@
+<div class='animate__fadeInRight'>
 <div class="container-home">
   <div class="container-h1">
     <h1>Learn to cope with mental struggles.</h1>
@@ -5,8 +6,8 @@
 
   <div class="container-buttons">
       <button class="button button-main" data-bs-toggle="modal" data-bs-target="#myModal">Needs Assessment</button>
-    <%= link_to(sos_path) do %>
-      <button class="button button-secondary">SOS</button>
+    <%= link_to(therapists_path) do %>
+      <button class="button button-secondary">Find Therapists</button>
     <% end %>
   </div>
 </div>
@@ -29,4 +30,5 @@
         <button type="button" class="button-tertiary" id="button-proceed" data-bs-dismiss="modal"><%= link_to "Take the quiz", start_path %></button>
       </div>
     </div>
+  </div>
   </div>
