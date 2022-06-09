@@ -246,11 +246,11 @@ images = [
 
 resource_text = "If you’re considering therapy — whether it’s to restore a relationship, recover from a trauma, adjust to a new life phase, or improve your mental health — finding the right therapist is the first hurdle to cross.
 
-\nResearchers have found that the bond between you and your therapist is likely to have a big impact on your growth. That’s why it’s important to do your research, ask questions, and pay attention to your own responses in your search for the therapist that’s right for you. Here are some tried-and-true methods for finding a therapist to help you reach your therapeutic goals.
+Researchers have found that the bond between you and your therapist is likely to have a big impact on your growth. That’s why it’s important to do your research, ask questions, and pay attention to your own responses in your search for the therapist that’s right for you. Here are some tried-and-true methods for finding a therapist to help you reach your therapeutic goals.
 
 If you plan to pay for therapy through your insurance plan, your first step might be to look through your plan’s provider network.
 
-\nIt’s also a good idea to find out whether your plan limits the number of sessions you can attend each year and whether using an out-of-network therapist will affect your out-of-pocket costs."
+It’s also a good idea to find out whether your plan limits the number of sessions you can attend each year and whether using an out-of-network therapist will affect your out-of-pocket costs."
 
 topics = %w[therapy mental\ health therapist]
 image_counter = 0
