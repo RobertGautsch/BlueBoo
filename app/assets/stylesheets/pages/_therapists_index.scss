@@ -6,8 +6,23 @@
   font-size: 32px;
 }
 
-.form-control {
-  width: 100%;
+.container-search {
+  display: flex;
+  align-items: center;
+}
+
+.form-button {
+  align-self: flex-start;
+}
+
+.form-control input {
+  background-color: green;
+}
+
+.container-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .container-map {
@@ -26,6 +41,12 @@
   margin-bottom: 24px;
   transition: box-shadow 0.4s;
   padding: 8px 16px;
+}
+
+.container-card-therapist h3 {
+  font-family: 'Capriola', sans-serif;
+  font-size: 16px;
+
 }
 
 .container-availability {

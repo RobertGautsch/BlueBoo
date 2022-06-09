@@ -67,4 +67,17 @@
 
 // Back button
 
-// Add therapist button
+// Form button
+.form-button {
+  background-color: #f5f0ed70;
+  border: 2px solid #0D3B67;
+  border-radius: 2px;
+  padding: 4px;
+  width: 80px;
+  align-self: center;
+}
+
+.form-button:hover, .form-button:active, .form-button:focus {
+  background-color: #FF7C44;
+  color: #F5F0ED;
+}

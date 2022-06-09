@@ -3,17 +3,19 @@
     <h1>Find therapists nearby</h1>
   </div>
 
-  <div class="container-search">
-    <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+  <%= simple_form_for therapists_path, method: :get, data: { turbo: false } do |f| %>
+    <div class="container-search">
       <%= f.input :query,
         class: "form-control",
         placeholder: "Search for city",
-        label: false %>
-        <p>Filter by:</p>
-      <%= f.input :availability, as: :boolean, :label => "Taking new patients" %>
-      <%= submit_tag "Search"%>
-    <% end %>
+        label: false, input_html: { class: ""} %>
+        <%= f.submit "Search", class: "form-button" %>
+    </div>
+  <div class="container-filter">
+    <p>Filter by:</p>
+    <%= f.input :availability, as: :boolean, :label => "Taking new patients" %>
   </div>
+  <% end %>
 
   <% unless @therapists == [] %>
     <div class="container-map"
@@ -22,7 +24,7 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   <% end %>
-  
+
 <!-- Button trigger modal -->
 <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add a new therapist
