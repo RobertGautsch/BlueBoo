@@ -14,7 +14,7 @@
       <%= submit_tag "Search"%>
     <% end %>
   </div>
-
+  <br>
   <% unless @therapists == [] %>
     <div class="container-map"
       data-controller="map"
@@ -22,7 +22,7 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   <% end %>
-  
+  <br>
 <!-- Button trigger modal -->
 <button type="button" class="button button-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add a new therapist
