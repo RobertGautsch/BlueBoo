@@ -47,7 +47,11 @@
         </div>
 
         <p><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></p>
-        <%= link_to "Update", edit_therapist_path(therapist) %>
+
+        <%= link_to edit_therapist_path(therapist) do %>
+          <button class="form-button">Update</button>
+        <% end %>
+
     </div>
   <% end %>
 
