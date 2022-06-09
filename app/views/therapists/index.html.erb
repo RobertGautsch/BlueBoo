@@ -36,11 +36,12 @@
           <% else %>
             <p>❌ No availability</p>
           <% end %>
-
-          <% if therapist.waiting_time > 1 %>
-            <p><%= "#{therapist.waiting_time} months wait" %></p>
-          <% else %>
-            <p><%= "#{therapist.waiting_time} month wait" %></p>
+          <% if therapist.available_places == true %>
+            <% if therapist.waiting_time > 1 %>
+              <p><%= "#{therapist.waiting_time} months wait" %></p>
+            <% else %>
+              <p><%= "#{therapist.waiting_time} month wait" %></p>
+            <% end %>
           <% end %>
         </div>
 
