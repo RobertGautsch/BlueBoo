@@ -1,17 +1,17 @@
 <div class="map-info-window">
-  <div class="d-flex justify-content-between">
-    <div class="map-info-window-name-availability">
+  <div class="map-info-window-content">
+    <div class="map-info-window-name">
       <h3><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
     </div>
-    <div>
-      <% if therapist.available_places %>
-        <p>✅</p> <%# add icon/emoji %>
+    <div class="map-info-window-phone">
+      <p><%= therapist.telephone_number %></p>
+    </div>
+    <div class="map-info-window-availability">
+      <% if therapist.available_places == true %>
+        <p>✅ Has open spots</p>
       <% else %>
-        <p>❌</p>
+        <p>❌ No availability</p>
       <% end %>
     </div>
-  </div>
-  <div class="map-info-window-phone">
-    <p><%= therapist.telephone_number %></p>
   </div>
 </div>
