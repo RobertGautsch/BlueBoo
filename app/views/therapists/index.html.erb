@@ -23,30 +23,33 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <h2> <%= "Therapists near you:" %> </h2>
   <% end %>
 
   <% @therapists.each do |therapist| %>
     <div class="container-card-therapist">
-        <h2><%= "#{therapist.first_name} #{therapist.last_name}" %></h2>
-        <h3><%= therapist.address %></h3>
-        <%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %>
-        <div class="container-availability">
-          <% if therapist.available_places == true %>
-            <p>✅ Has open spots</p>
-          <% else %>
-            <p>❌ No availability</p>
-          <% end %>
-
+      <h3><%= "#{therapist.first_name} #{therapist.last_name}" %></h3>
+      <span><%= therapist.therapy_type %></span>
+      <h4><%= therapist.address %></h4>
+      <h4><%= link_to therapist.telephone_number, "tel:#{therapist.telephone_number}" %></h4>
+      <div class="container-availability">
+        <% if therapist.available_places == true %>
+          <h5>✅ Has open spots</h5>
+        <% else %>
+          <h5>❌ No availability</h5>
+        <% end %>
+        <% if therapist.available_places == false %>
           <% if therapist.waiting_time > 1 %>
-            <p><%= "#{therapist.waiting_time} months wait" %></p>
+            <h5><%= "#{therapist.waiting_time} months wait" %></h5>
           <% else %>
-            <p><%= "#{therapist.waiting_time} month wait" %></p>
+            <h5><%= "#{therapist.waiting_time} month wait" %></h5>
           <% end %>
-        </div>
-
-        <p><%= therapist.therapy_type %></p>
-        <p><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></p>
-        <%= link_to "Update", edit_therapist_path(therapist) %>
+        <% end %>
+      </div>
+      <%= link_to edit_therapist_path(therapist) do %>
+        <button class="form-button">Update</button>
+      <% end %>
+      <h6 id="last-updated"><%= "Last updated on #{therapist.updated_at.strftime("%m %B %Y")}" %></h6>
     </div>
   <% end %>
 
@@ -61,6 +64,13 @@
         Add a new therapist
       </button>
     </div>
+  <% else %>
+    <div class="container-add-therapist">
+      <h3>Know of a therapist accepting new patients?</h3>
+      <button type="button" class="button button-main" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add a new therapist
+      </button>
+  </div>
   <% end %>
 
 <!-- Modal for New therapist -->

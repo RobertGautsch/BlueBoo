@@ -5,20 +5,20 @@
   <% bad_counter = 0 %>
 
   <div class="container-results-summary">
-    <div data-controller="dashboard" data-dashboard-end-value="<%= @bads.count%>" data-dashboard-title-value="areas need attention" class="dashboard-area">
-      <h2><i class="far fa-tired"></i></h2>
+    <div data-controller="dashboard" data-dashboard-end-value="<%= @bads.count%>" data-dashboard-title-value="Areas need attention" class="dashboard-area">
+      <img src="<%= image_url("bad.png") %>" alt="logo" class="dashboard-result">
       <h2 data-dashboard-target="counter" id="result-counter">0</h2>
       <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
     </div>
 
-    <div data-controller="dashboard" data-dashboard-end-value="<%= @neutrals.count%>" data-dashboard-title-value="areas could use more help" class="dashboard-area">
-      <h2><i class="far fa-grin"></i></h2>
+    <div data-controller="dashboard" data-dashboard-end-value="<%= @neutrals.count%>" data-dashboard-title-value="Areas could use more help" class="dashboard-area">
+      <img src="<%= image_url("neutral.png") %>" alt="logo" class="dashboard-result">
       <h2 data-dashboard-target="counter" id="result-counter">0</h2>
       <h3 data-dashboard-target="title" style="visibility: hidden">d </h3>
     </div>
 
-    <div data-controller="dashboard" data-dashboard-end-value="<%= @goods.count%>" data-dashboard-title-value="areas look great" class="dashboard-area">
-      <h2><i class="far fa-grin-beam"></i></h2>
+    <div data-controller="dashboard" data-dashboard-end-value="<%= @goods.count%>" data-dashboard-title-value="Areas look great" class="dashboard-area">
+      <img src="<%= image_url("good.png") %>" alt="logo" class="dashboard-result">
       <h2 data-dashboard-target="counter" id="result-counter">0</h2>
       <h3 data-dashboard-target="title" style="visibility: hidden"> d</h3>
     </div>

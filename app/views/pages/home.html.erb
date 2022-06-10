@@ -5,7 +5,7 @@
   </div>
 
   <div class="container-buttons">
-      <button class="button button-main" data-bs-toggle="modal" data-bs-target="#myModal">Needs Assessment</button>
+    <button class="button button-main" data-bs-toggle="modal" data-bs-target="#myModal">Needs Assessment</button>
     <%= link_to(therapists_path) do %>
       <button class="button button-secondary">Find Therapists</button>
     <% end %>
@@ -27,7 +27,7 @@
       </div>
       <div class="modal-footer">
         <button class="button-tertiary"><%= link_to "SOS Resources", "/sos" %></button>
-        <button type="button" class="button-tertiary" id="button-proceed" data-bs-dismiss="modal"><%= link_to "Take the quiz", start_path %></button>
+        <button type="button" class="button-tertiary" id="button-proceed" data-bs-dismiss="modal"><%= link_to "Continue →", start_path %></button>
       </div>
     </div>
   </div>
