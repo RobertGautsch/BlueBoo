@@ -38,7 +38,7 @@
         <% else %>
           <h5>❌ No availability</h5>
         <% end %>
-        <% if therapist.available_places == true %>
+        <% if therapist.available_places == false %>
           <% if therapist.waiting_time > 1 %>
             <h5><%= "#{therapist.waiting_time} months wait" %></h5>
           <% else %>
