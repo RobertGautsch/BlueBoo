@@ -218,6 +218,43 @@ end
 
 puts "one suggestion for each answer created"
 
+# suggestions for anxiety
+
+suggestion7 = Suggestion.new(
+  # title: Faker::TvShows::RuPaul.quote,
+  # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+  title: "Grounding exercises",
+  content: "It can help to activate your senses to head away from your thoughts or to calm them. What can help is taking deep breaths, splash water in your face, make a tea and drink it slowly or listening to music."
+)
+suggestion7.question = Question.where(category: "anxiety")
+suggestion7.answer_type = "neutral"
+suggestion7.save!
+
+suggestion8 = Suggestion.new(
+  # title: Faker::TvShows::RuPaul.quote,
+  # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+  title: "Journaling",
+  content: "This is a great way of getting thoughts and spirals out of your head and onto the paper. And writing can have a very calming effect on us."
+)
+suggestion8.question = Question.where(category: "anxiety")
+suggestion8.answer_type = "neutral"
+suggestion8.save!
+
+suggestion9 = Suggestion.new(
+  # title: Faker::TvShows::RuPaul.quote,
+  # content: Faker::Lorem.sentence(word_count: 20, supplemental: false, random_words_to_add: 30)
+  title: "Talk it out",
+  content: "Just as journaling, it can help to get out of your head by communicating what you are feeling. If you are alone, it can also help to say your name out loud, as a different form of grounding."
+)
+suggestion9.question = Question.where(category: "anxiety")
+suggestion9.answer_type = "neutral"
+suggestion9.save!
+
+# copy for bad just for sure
+# assign to anxiety question
+
+puts "suggestions for anxiety created and assigned to anxiety question"
+
 titles = [
   "When to seek out professional help?",
   "Choosing the right therapist for you",
