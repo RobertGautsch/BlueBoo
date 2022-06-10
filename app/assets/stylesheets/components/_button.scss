@@ -65,7 +65,7 @@
 }
 
  #button-add-therapist {
-  width: 302px;
+  width: 285px;
  }
 
 
@@ -94,8 +94,9 @@
   border-radius: 2px;
   padding: 4px;
   width: 80px;
-  align-self: center;
+  align-self: flex-start;
   height: 40px;
+  color: #0D3B67;
 }
 
 .form-button:hover, .form-button:active, .form-button:focus {

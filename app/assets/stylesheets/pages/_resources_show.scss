@@ -1,16 +1,18 @@
 .container-article {
-  padding-left: 5vw;
-  padding-right: 5vw;
-  padding-bottom: 10vh;
-}
-
-.container-img {
-  width: 90vw;
+  padding: 16px 24px;
 }
 
 .container-img img {
   height: 300px;
-  object-fit: scale-down;
+  object-fit: cover;
+}
+
+.article {
+  margin-top: 24px;
+}
+
+h1.resource {
+  margin: 16px 0;
 }
 
 .resource-img {
@@ -21,10 +23,6 @@
   border-top-left-radius: 4px;
 }
 
-.article {
-  padding: 16px 24px;
-}
-
 .container-span {
   display: flex;
   flex-direction: row;
@@ -32,6 +30,7 @@
   align-items: space-between;
   padding-top: 8px;
   padding-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .topic {
